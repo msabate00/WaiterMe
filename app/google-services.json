@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "117371645313",
+    "project_id": "waiterme",
+    "storage_bucket": "waiterme.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:117371645313:android:a85586f284eda0e05a4c80",
+        "android_client_info": {
+          "package_name": "cat.copernic.msabatem.waiterme"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "117371645313-1lhd9kg13h7v3g420umt21kn6430srku.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDdjH1BID1yAaJ8MMd-fptHofs30hZjTgw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "117371645313-1lhd9kg13h7v3g420umt21kn6430srku.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
