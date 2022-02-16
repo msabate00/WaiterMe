@@ -9,14 +9,18 @@
     <string name="orders">Orders</string>
     <string name="search">Search</string>
     <string name="go_back">Go back</string>
+    <string name="waiterme">WaiterMe</string>
 
 
     <!-- LOGIN REGISTER-->
     <string name="sing_in">Sing in</string>
     <string name="email">Email</string>
+    <string name="email_example">you@example.com</string>
     <string name="password">Password</string>
+    <string name="password_example">******</string>
     <string name="sing_up">Sing up</string>
     <string name="continue_">Continue</string>
+    <string name="hi_there">Hi there! Nice to see you again.</string>
 
 
 
