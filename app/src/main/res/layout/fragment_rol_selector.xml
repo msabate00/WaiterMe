@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/frameLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".Login.LoginFragment">
+
+        <ImageView
+            android:id="@+id/iv_RegisterIcon"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_marginTop="40dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@android:drawable/sym_def_app_icon" />
+
+        <TextView
+            android:id="@+id/tv_Register_SingIn"
+            style="@style/HeaderText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/select_rol"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.149"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/iv_RegisterIcon" />
+
+        <EditText
+            android:id="@+id/et_Register_Email"
+            android:layout_width="218dp"
+            android:layout_height="54dp"
+            android:background="@android:drawable/dialog_holo_light_frame"
+            android:ems="10"
+            android:hint="@string/email_example"
+            android:inputType="textEmailAddress"
+            android:paddingStart="15dp"
+            app:layout_constraintEnd_toEndOf="@+id/tv_Register_EmailLabel"
+            app:layout_constraintStart_toStartOf="@+id/tv_Register_EmailLabel"
+            app:layout_constraintTop_toBottomOf="@+id/tv_Register_EmailLabel" />
+
+        <TextView
+            android:id="@+id/tv_Register_EmailLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/employee_name"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_Register_SingIn" />
+
+        <Button
+            android:id="@+id/bt_Register_SingIn"
+            style="@style/ReceptionistButton"
+            android:layout_marginTop="44dp"
+            android:elevation="10dp"
+            android:text="@string/receptionist"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.495"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/et_Register_Email" />
+
+        <Button
+            android:id="@+id/button4"
+            style="@style/WaiterButton"
+            android:layout_marginTop="24dp"
+            android:text="@string/waiter"
+            app:layout_constraintEnd_toEndOf="@+id/bt_Register_SingIn"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/bt_Register_SingIn"
+            app:layout_constraintTop_toBottomOf="@+id/bt_Register_SingIn" />
+
+        <Button
+            android:id="@+id/button5"
+            style="@style/ChefButton"
+            android:layout_marginTop="24dp"
+            android:text="@string/chef"
+            app:layout_constraintEnd_toEndOf="@+id/button4"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/button4"
+            app:layout_constraintTop_toBottomOf="@+id/button4" />
+
+        <Button
+            android:id="@+id/button6"
+            style="@style/AdminButton"
+            android:layout_marginTop="24dp"
+            android:text="@string/admin_panel"
+            app:layout_constraintEnd_toEndOf="@+id/button5"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/button5"
+            app:layout_constraintTop_toBottomOf="@+id/button5" />
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="40dp"
+            android:layout_height="52dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="4dp"
+            android:backgroundTint="@color/cardview_shadow_end_color"
+            android:drawableTop="@android:drawable/ic_delete"
+            app:iconPadding="0dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

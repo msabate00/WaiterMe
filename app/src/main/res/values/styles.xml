@@ -16,5 +16,33 @@
         <item name="android:layout_height">60dp</item>
         <item name="android:background">@android:drawable/dialog_holo_light_frame</item>
     </style>
+    <style name="ReceptionistButton" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@color/white</item>
+        <item name="backgroundTint">@color/yellow</item>
+        <item name="android:layout_width">300dp</item>
+        <item name="android:layout_height">60dp</item>
+        <item name="android:background">@android:drawable/dialog_holo_light_frame</item>
+    </style>
+    <style name="WaiterButton" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@color/white</item>
+        <item name="backgroundTint">@color/orange</item>
+        <item name="android:layout_width">300dp</item>
+        <item name="android:layout_height">60dp</item>
+        <item name="android:background">@android:drawable/dialog_holo_light_frame</item>
+    </style>
+    <style name="ChefButton" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@color/white</item>
+        <item name="backgroundTint">@color/red</item>
+        <item name="android:layout_width">300dp</item>
+        <item name="android:layout_height">60dp</item>
+        <item name="android:background">@android:drawable/dialog_holo_light_frame</item>
+    </style>
+    <style name="AdminButton" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@color/white</item>
+        <item name="backgroundTint">@color/green</item>
+        <item name="android:layout_width">300dp</item>
+        <item name="android:layout_height">60dp</item>
+        <item name="android:background">@android:drawable/dialog_holo_light_frame</item>
+    </style>
 
 </resources>
