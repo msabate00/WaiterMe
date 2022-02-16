@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/frameLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".Login.LoginFragment">
+
+        <ImageView
+            android:id="@+id/iv_RegisterIcon"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_marginTop="40dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@mipmap/ic_launcher_round" />
+
+        <TextView
+            android:id="@+id/tv_Register_SingIn"
+            style="@style/HeaderText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/sing_up"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.149"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/iv_RegisterIcon" />
+
+        <TextView
+            android:id="@+id/tv_Register_SubSingIn"
+            style="@style/SubHeaderText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/register_info"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/tv_Register_SingIn"
+            app:layout_constraintTop_toBottomOf="@+id/tv_Register_SingIn" />
+
+        <EditText
+            android:id="@+id/et_Register_Email"
+            android:layout_width="204dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="@string/email_example"
+            android:inputType="textEmailAddress"
+            app:layout_constraintStart_toStartOf="@+id/tv_Register_SubSingIn"
+            app:layout_constraintTop_toBottomOf="@+id/tv_Register_EmailLabel" />
+
+        <TextView
+            android:id="@+id/tv_Register_EmailLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:text="@string/email"
+            android:textColor="@color/red"
+            app:layout_constraintStart_toStartOf="@+id/tv_Register_SubSingIn"
+            app:layout_constraintTop_toBottomOf="@+id/tv_Register_SubSingIn" />
+
+        <TextView
+            android:id="@+id/tv_Register_PasswordLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/password"
+            android:textColor="@color/red"
+            app:layout_constraintStart_toStartOf="@+id/et_Register_Email"
+            app:layout_constraintTop_toBottomOf="@+id/et_Register_Email" />
+
+        <EditText
+            android:id="@+id/et_Register_Password"
+            android:layout_width="204dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="@string/password_example"
+            android:inputType="textPassword"
+            app:layout_constraintStart_toStartOf="@+id/tv_Register_PasswordLabel"
+            app:layout_constraintTop_toBottomOf="@+id/tv_Register_PasswordLabel" />
+
+        <Button
+            android:id="@+id/bt_Register_SingIn"
+            style="@style/StandardButton"
+            android:layout_marginTop="108dp"
+            android:elevation="10dp"
+            android:text="@string/sing_up"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.495"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/et_Register_Password" />
+
+        <Button
+            android:id="@+id/button4"
+            style="@style/StandardButton"
+            android:layout_marginTop="12dp"
+            android:text="@string/go_back"
+            app:layout_constraintEnd_toEndOf="@+id/bt_Register_SingIn"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/bt_Register_SingIn"
+            app:layout_constraintTop_toBottomOf="@+id/bt_Register_SingIn" />
+
+        <TextView
+            android:id="@+id/tv_Register_PasswordConfirm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/password_confirm"
+            android:textColor="@color/red"
+            app:layout_constraintStart_toStartOf="@+id/et_Register_Password"
+            app:layout_constraintTop_toBottomOf="@+id/et_Register_Password" />
+
+        <EditText
+            android:id="@+id/editTextTextPassword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="@string/password_example"
+            android:inputType="textPassword"
+            app:layout_constraintStart_toStartOf="@+id/tv_Register_PasswordConfirm"
+            app:layout_constraintTop_toBottomOf="@+id/tv_Register_PasswordConfirm" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

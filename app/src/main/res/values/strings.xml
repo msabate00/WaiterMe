@@ -18,10 +18,11 @@
     <string name="email_example">you@example.com</string>
     <string name="password">Password</string>
     <string name="password_example">******</string>
+    <string name="password_confirm">Confirm password</string>
     <string name="sing_up">Sing up</string>
     <string name="continue_">Continue</string>
     <string name="hi_there">Hi there! Nice to see you again.</string>
-
+    <string name="register_info">Hi! This account is for all your employees, which means that the ID and password are common to all your employees.</string>
 
 
     <!-- SELECT ROL -->
@@ -40,9 +41,9 @@
     <string name="to_pay">To pay</string>
     <string name="paid">Paid</string>
     <string name="details">details</string>
-    
+
     <!-- WAITER -->
-    
+
     <string name="orders_actives">Orders actives</string>
     <string name="send_orders">Send orders</string>
     <string name="new_order">New order</string>
@@ -61,11 +62,6 @@
     <string name="this_year">This year</string>
     <string name="this_month">This month</string>
     <string name="today">Today</string>
-
-
-
-
-
 
 
 </resources>
