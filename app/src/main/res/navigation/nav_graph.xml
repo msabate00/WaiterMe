@@ -8,5 +8,35 @@
         android:id="@+id/loginFragment"
         android:name="cat.copernic.msabatem.waiterme.Login.LoginFragment"
         android:label="fragment_login"
-        tools:layout="@layout/fragment_login" />
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_loginFragment_to_registerFragment"
+            app:destination="@id/registerFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_rolSelectorFragment"
+            app:destination="@id/rolSelectorFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="cat.copernic.msabatem.waiterme.Login.RegisterFragment"
+        android:label="RegisterFragment" >
+        <action
+            android:id="@+id/action_registerFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_registerFragment_to_rolSelectorFragment"
+            app:destination="@id/rolSelectorFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/rolSelectorFragment"
+        android:name="cat.copernic.msabatem.waiterme.Login.RolSelectorFragment"
+        android:label="RolSelectorFragment" >
+        <action
+            android:id="@+id/action_rolSelectorFragment_to_receptionistMainFragment"
+            app:destination="@id/receptionistMainFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/receptionistMainFragment"
+        android:name="cat.copernic.msabatem.waiterme.Recepcionist.ReceptionistMainFragment"
+        android:label="ReceptionistMainFragment" />
 </navigation>
