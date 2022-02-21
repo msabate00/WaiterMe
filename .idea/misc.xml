@@ -4,8 +4,9 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Android_Studio_Proyectos/WaiterMe/app/src/main/res/layout/activity_main.xml" value="0.13333333333333333" />
-        <entry key="..\:/Android_Studio_Proyectos/WaiterMe/app/src/main/res/layout/fragment_admin_main.xml" value="0.11614583333333334" />
+        <entry key="..\:/Android_Studio_Proyectos/WaiterMe/app/src/main/res/layout/fragment_admin_main.xml" value="0.264" />
         <entry key="..\:/Android_Studio_Proyectos/WaiterMe/app/src/main/res/layout/fragment_login.xml" value="0.6" />
+        <entry key="..\:/Android_Studio_Proyectos/WaiterMe/app/src/main/res/layout/fragment_receptionist_main.xml" value="0.259375" />
         <entry key="..\:/Android_Studio_Proyectos/WaiterMe/app/src/main/res/layout/fragment_register.xml" value="0.259375" />
         <entry key="..\:/Android_Studio_Proyectos/WaiterMe/app/src/main/res/layout/fragment_rol_selector.xml" value="0.136" />
       </map>

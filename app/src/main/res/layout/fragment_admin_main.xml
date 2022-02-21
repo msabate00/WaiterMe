@@ -8,19 +8,77 @@
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/frameLayout2"
+        android:id="@+id/frameLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".Admin.AdminMainFragment">
+        tools:context=".Login.LoginFragment">
 
-        <!-- TODO: Update blank fragment layout -->
         <TextView
-            android:id="@+id/textView"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:text="@string/hello_blank_fragment"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:id="@+id/tv_AdminMain_Title"
+            style="@style/HeaderText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="88dp"
+            android:text="@string/admin_panel"
+            android:textAllCaps="true"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/bt_AdminMain_EmployeesSt"
+            style="@style/AdminButton"
+            android:layout_marginTop="92dp"
+            android:elevation="10dp"
+            android:text="@string/employees_statistics"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.504"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_AdminMain_Title" />
+
+        <Button
+            android:id="@+id/bt_AdminMain_PaymentSt"
+            style="@style/AdminButton"
+            android:layout_marginTop="28dp"
+            android:elevation="10dp"
+            android:text="@string/payment_statistics"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.495"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/bt_AdminMain_EmployeesSt" />
+
+
+        <Button
+            android:id="@+id/bt_AdminMain_TablesMan"
+            style="@style/AdminButton"
+            android:layout_marginTop="92dp"
+            android:elevation="10dp"
+            android:text="@string/manage_tables"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.504"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/bt_AdminMain_PaymentSt" />
+
+        <Button
+            android:id="@+id/bt_AdminMain_FoodMan"
+            style="@style/AdminButton"
+            android:layout_marginTop="28dp"
+            android:elevation="10dp"
+            android:text="@string/manage_food"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.495"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/bt_AdminMain_TablesMan" />
+
+        <Button
+            android:id="@+id/bt_AdminMain_close"
+            android:layout_width="40dp"
+            android:layout_height="52dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="4dp"
+            android:backgroundTint="@color/cardview_shadow_end_color"
+            android:drawableTop="@android:drawable/ic_delete"
+            app:iconPadding="0dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
