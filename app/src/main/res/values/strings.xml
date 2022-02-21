@@ -10,6 +10,8 @@
     <string name="search">Search</string>
     <string name="go_back">Go back</string>
     <string name="waiterme">WaiterMe</string>
+    <string name="empty_values">There are empty fields</string>
+    <string name="auth_failed">Authentication failed.</string>
 
 
     <!-- LOGIN REGISTER-->
@@ -23,7 +25,9 @@
     <string name="continue_">Continue</string>
     <string name="hi_there">Hi there! Nice to see you again.</string>
     <string name="register_info">Hi! This account is for all your employees, which means that the ID and password are common to all your employees.</string>
-
+    <string name="pass_not_match">Passwords do not match</string>
+    <string name="pass_too_short">The password is too short (min 6 chars)</string>
+    <string name="already_user">There is already a user with this account</string>
 
     <!-- SELECT ROL -->
     <string name="select_rol">Select your role</string>

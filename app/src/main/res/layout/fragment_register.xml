@@ -88,7 +88,7 @@
             app:layout_constraintTop_toBottomOf="@+id/tv_Register_PasswordLabel" />
 
         <Button
-            android:id="@+id/bt_Register_SingIn"
+            android:id="@+id/bt_Register_SingUp"
             style="@style/StandardButton"
             android:layout_marginTop="108dp"
             android:elevation="10dp"
@@ -99,14 +99,14 @@
             app:layout_constraintTop_toBottomOf="@+id/et_Register_Password" />
 
         <Button
-            android:id="@+id/button4"
+            android:id="@+id/bt_Register_goBack"
             style="@style/StandardButton"
             android:layout_marginTop="12dp"
             android:text="@string/go_back"
-            app:layout_constraintEnd_toEndOf="@+id/bt_Register_SingIn"
+            app:layout_constraintEnd_toEndOf="@+id/bt_Register_SingUp"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/bt_Register_SingIn"
-            app:layout_constraintTop_toBottomOf="@+id/bt_Register_SingIn" />
+            app:layout_constraintStart_toStartOf="@+id/bt_Register_SingUp"
+            app:layout_constraintTop_toBottomOf="@+id/bt_Register_SingUp" />
 
         <TextView
             android:id="@+id/tv_Register_PasswordConfirm"
@@ -119,7 +119,7 @@
             app:layout_constraintTop_toBottomOf="@+id/et_Register_Password" />
 
         <EditText
-            android:id="@+id/editTextTextPassword"
+            android:id="@+id/et_Register_ConfirmPassword"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="10"
