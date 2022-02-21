@@ -52,7 +52,6 @@ class RolSelectorFragment : Fragment() {
 
     private fun adminDialog(){
         var actualPin = "";
-        Log.i("AYUDA", "A")
         builder = AlertDialog.Builder(context)
         builder.setTitle("Admin PIN")
         val input = EditText(context);
@@ -64,9 +63,10 @@ class RolSelectorFragment : Fragment() {
         builder.setPositiveButton(getString(R.string.dialog_ok)) {
                 dialog, which ->
             actualPin = input.text.toString() ;
+            Log.i("AYUDA", "MD5 ES: ${Utils().md5(actualPin)}")
             val ref = Utils().getDatabase().getReference("locals/" + Utils().getAuth().uid + "/super_pin")
             ref.get().addOnSuccessListener {
-                if(it.value.toString() == actualPin) {
+                if(it.value.toString() == Utils().md5(actualPin)) {
                     findNavController().navigate(RolSelectorFragmentDirections.actionRolSelectorFragmentToAdminMainFragment())
                 }else{
                     Toast.makeText(context, getString(R.string.wrong_pin), Toast.LENGTH_SHORT).show()

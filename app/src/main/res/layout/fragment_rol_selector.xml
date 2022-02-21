@@ -98,10 +98,10 @@
             style="@style/AdminButton"
             android:layout_marginTop="24dp"
             android:text="@string/admin_panel"
-            app:layout_constraintEnd_toEndOf="@+id/bt_RolSelector_Waiter"
+            app:layout_constraintEnd_toEndOf="@+id/bt_RolSelector_Chef"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/bt_RolSelector_Waiter"
-            app:layout_constraintTop_toBottomOf="@+id/bt_RolSelector_Waiter" />
+            app:layout_constraintStart_toStartOf="@+id/bt_RolSelector_Chef"
+            app:layout_constraintTop_toBottomOf="@+id/bt_RolSelector_Chef" />
 
         <Button
             android:id="@+id/bt_RolSelector_close"

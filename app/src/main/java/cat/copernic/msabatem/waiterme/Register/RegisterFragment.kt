@@ -89,7 +89,7 @@ class RegisterFragment : Fragment() {
 
 
                     val ref = Utils().getDatabase().getReference("locals/" + user!!.uid + "/super_pin");
-                    ref.setValue(binding.etRegisterSuperAdminPass.text.toString());
+                    ref.setValue(Utils().md5(binding.etRegisterSuperAdminPass.text.toString()));
 
                     findNavController().navigate(RegisterFragmentDirections.actionRegisterFragmentToRolSelectorFragment())
                 } else {
