@@ -14,6 +14,7 @@ import cat.copernic.msabatem.waiterme.databinding.FragmentRegisterBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.ktx.Firebase
 
 
@@ -26,6 +27,7 @@ class RegisterFragment : Fragment() {
 
     private lateinit var binding: FragmentRegisterBinding
     private lateinit var auth: FirebaseAuth
+    private lateinit var database: FirebaseDatabase;
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -46,6 +48,7 @@ class RegisterFragment : Fragment() {
             if(binding.etRegisterEmail.text.toString() != "" && binding.etRegisterPassword.text.toString() != ""){
                 if(binding.etRegisterConfirmPassword.text.toString() == binding.etRegisterPassword.text.toString()){
                     if(binding.etRegisterPassword.text.toString().length >=6 ){
+                        //if(binding.etRegister)
                         createAccount();
                     }else{
                         Toast.makeText(context, getString(R.string.pass_too_short), Toast.LENGTH_SHORT).show()
@@ -67,6 +70,9 @@ class RegisterFragment : Fragment() {
     override fun onStart() {
         super.onStart()
         auth = Firebase.auth
+        database = FirebaseDatabase.getInstance("https://waiterme-default-rtdb.europe-west1.firebasedatabase.app/")
+        val ref = database.getReference("message");
+
     }
 
 
@@ -82,6 +88,10 @@ class RegisterFragment : Fragment() {
                     Log.d("AYUDA", "createUserWithEmail:success")
                     val user = auth.currentUser
                     updateUI(user)
+
+                    val ref = database.getReference("locals/" + user!!.uid + "/super_pin");
+                    ref.setValue(binding.etRegisterSuperAdminPass.text.toString());
+
                     findNavController().navigate(RegisterFragmentDirections.actionRegisterFragmentToRolSelectorFragment())
                 } else {
                     // If sign in fails, display a message to the user.

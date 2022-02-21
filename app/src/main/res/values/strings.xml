@@ -28,6 +28,8 @@
     <string name="pass_not_match">Passwords do not match</string>
     <string name="pass_too_short">The password is too short (min 6 chars)</string>
     <string name="already_user">There is already a user with this account</string>
+    <string name="register_admin_pass">Admin password</string>
+    <string name="register_admin_pass_desc">4-digit pin that gives access to the administrator panel of the local. It is private.</string>
 
     <!-- SELECT ROL -->
     <string name="select_rol">Select your role</string>
