@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import cat.copernic.msabatem.waiterme.R
+import cat.copernic.msabatem.waiterme.Utils
 import cat.copernic.msabatem.waiterme.databinding.FragmentLoginBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
@@ -30,6 +31,7 @@ class LoginFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         auth = Firebase.auth
+
 
     }
 
@@ -53,7 +55,7 @@ class LoginFragment : Fragment() {
 
     override fun onStart() {
         super.onStart()
-        auth.signOut();
+        //auth.signOut();
         val currentUser = auth.currentUser
         if(currentUser != null){
             reload();
@@ -77,7 +79,7 @@ class LoginFragment : Fragment() {
                         // Sign in success, update UI with the signed-in user's information
                         val user = auth.currentUser
                         updateUI(user)
-                        findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToRolSelectorFragment());
+
 
                     } else {
                         // If sign in fails, display a message to the user.
@@ -96,6 +98,10 @@ class LoginFragment : Fragment() {
     }
 
     private fun updateUI(user: FirebaseUser?) {
+
+        if(user != null){
+            findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToRolSelectorFragment());
+        }
 
     }
 

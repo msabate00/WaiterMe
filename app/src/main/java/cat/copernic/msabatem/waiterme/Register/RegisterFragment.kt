@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import cat.copernic.msabatem.waiterme.R
+import cat.copernic.msabatem.waiterme.Utils
 import cat.copernic.msabatem.waiterme.databinding.FragmentLoginBinding
 import cat.copernic.msabatem.waiterme.databinding.FragmentRegisterBinding
 import com.google.firebase.auth.FirebaseAuth
@@ -27,7 +28,7 @@ class RegisterFragment : Fragment() {
 
     private lateinit var binding: FragmentRegisterBinding
     private lateinit var auth: FirebaseAuth
-    private lateinit var database: FirebaseDatabase;
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -70,9 +71,6 @@ class RegisterFragment : Fragment() {
     override fun onStart() {
         super.onStart()
         auth = Firebase.auth
-        database = FirebaseDatabase.getInstance("https://waiterme-default-rtdb.europe-west1.firebasedatabase.app/")
-        val ref = database.getReference("message");
-
     }
 
 
@@ -89,7 +87,8 @@ class RegisterFragment : Fragment() {
                     val user = auth.currentUser
                     updateUI(user)
 
-                    val ref = database.getReference("locals/" + user!!.uid + "/super_pin");
+
+                    val ref = Utils().getDatabase().getReference("locals/" + user!!.uid + "/super_pin");
                     ref.setValue(binding.etRegisterSuperAdminPass.text.toString());
 
                     findNavController().navigate(RegisterFragmentDirections.actionRegisterFragmentToRolSelectorFragment())

@@ -63,7 +63,7 @@
             app:layout_constraintTop_toBottomOf="@+id/tv_Register_SingIn" />
 
         <Button
-            android:id="@+id/bt_Register_SingIn"
+            android:id="@+id/bt_RolSelector_Receptionist"
             style="@style/ReceptionistButton"
             android:layout_marginTop="44dp"
             android:elevation="10dp"
@@ -74,37 +74,37 @@
             app:layout_constraintTop_toBottomOf="@+id/et_Register_Email" />
 
         <Button
-            android:id="@+id/bt_Login_SingUp"
+            android:id="@+id/bt_RolSelector_Waiter"
             style="@style/WaiterButton"
             android:layout_marginTop="24dp"
             android:text="@string/waiter"
-            app:layout_constraintEnd_toEndOf="@+id/bt_Register_SingIn"
+            app:layout_constraintEnd_toEndOf="@+id/bt_RolSelector_Receptionist"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/bt_Register_SingIn"
-            app:layout_constraintTop_toBottomOf="@+id/bt_Register_SingIn" />
+            app:layout_constraintStart_toStartOf="@+id/bt_RolSelector_Receptionist"
+            app:layout_constraintTop_toBottomOf="@+id/bt_RolSelector_Receptionist" />
 
         <Button
-            android:id="@+id/button5"
+            android:id="@+id/bt_RolSelector_Chef"
             style="@style/ChefButton"
             android:layout_marginTop="24dp"
             android:text="@string/chef"
-            app:layout_constraintEnd_toEndOf="@+id/bt_Login_SingUp"
+            app:layout_constraintEnd_toEndOf="@+id/bt_RolSelector_Waiter"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/bt_Login_SingUp"
-            app:layout_constraintTop_toBottomOf="@+id/bt_Login_SingUp" />
+            app:layout_constraintStart_toStartOf="@+id/bt_RolSelector_Waiter"
+            app:layout_constraintTop_toBottomOf="@+id/bt_RolSelector_Waiter" />
 
         <Button
             android:id="@+id/bt_RolSelector_Admin"
             style="@style/AdminButton"
             android:layout_marginTop="24dp"
             android:text="@string/admin_panel"
-            app:layout_constraintEnd_toEndOf="@+id/button5"
+            app:layout_constraintEnd_toEndOf="@+id/bt_RolSelector_Waiter"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/button5"
-            app:layout_constraintTop_toBottomOf="@+id/button5" />
+            app:layout_constraintStart_toStartOf="@+id/bt_RolSelector_Waiter"
+            app:layout_constraintTop_toBottomOf="@+id/bt_RolSelector_Waiter" />
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/bt_RolSelector_close"
             android:layout_width="40dp"
             android:layout_height="52dp"
             android:layout_marginStart="16dp"

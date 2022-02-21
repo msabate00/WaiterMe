@@ -39,6 +39,9 @@
     <string name="waiter">Waiter</string>
     <string name="chef">Chef</string>
     <string name="admin_panel">Admin panel</string>
+    <string name="dialog_ok">Ok</string>
+    <string name="dialog_cancel">Cancel</string>
+    <string name="wrong_pin">The pin is not correct</string>
 
 
     <!-- RECEPCIONIST -->

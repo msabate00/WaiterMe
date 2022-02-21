@@ -34,9 +34,16 @@
         <action
             android:id="@+id/action_rolSelectorFragment_to_receptionistMainFragment"
             app:destination="@id/receptionistMainFragment" />
+        <action
+            android:id="@+id/action_rolSelectorFragment_to_adminMainFragment"
+            app:destination="@id/adminMainFragment" />
     </fragment>
     <fragment
         android:id="@+id/receptionistMainFragment"
         android:name="cat.copernic.msabatem.waiterme.Recepcionist.ReceptionistMainFragment"
         android:label="ReceptionistMainFragment" />
+    <fragment
+        android:id="@+id/adminMainFragment"
+        android:name="cat.copernic.msabatem.waiterme.Admin.AdminMainFragment"
+        android:label="AdminMainFragment" />
 </navigation>
