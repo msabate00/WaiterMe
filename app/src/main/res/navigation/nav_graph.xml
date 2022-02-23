@@ -45,5 +45,13 @@
     <fragment
         android:id="@+id/adminMainFragment"
         android:name="cat.copernic.msabatem.waiterme.Admin.AdminMainFragment"
-        android:label="AdminMainFragment" />
+        android:label="AdminMainFragment" >
+        <action
+            android:id="@+id/action_adminMainFragment_to_manageTablesFragment"
+            app:destination="@id/manageTablesFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/manageTablesFragment"
+        android:name="cat.copernic.msabatem.waiterme.Admin.ManageTables.ManageTablesFragment"
+        android:label="ManageTablesFragment" />
 </navigation>

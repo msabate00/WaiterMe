@@ -18,7 +18,7 @@
             style="@style/HeaderText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="88dp"
+            android:layout_marginTop="24dp"
             android:text="@string/receptionist"
             android:textAllCaps="true"
             app:layout_constraintEnd_toEndOf="parent"

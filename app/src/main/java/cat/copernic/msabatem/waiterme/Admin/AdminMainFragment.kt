@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import cat.copernic.msabatem.waiterme.R
 import cat.copernic.msabatem.waiterme.databinding.FragmentAdminMainBinding
 import cat.copernic.msabatem.waiterme.databinding.FragmentRegisterBinding
@@ -25,6 +26,11 @@ class AdminMainFragment : Fragment() {
         // Inflate the layout for this fragment
 
         binding = FragmentAdminMainBinding.inflate(inflater, container, false);
+
+
+        binding.btAdminMainTablesMan.setOnClickListener {
+            findNavController().navigate(AdminMainFragmentDirections.actionAdminMainFragmentToManageTablesFragment());
+        }
 
         return binding.root;
        //return inflater.inflate(R.layout.fragment_admin_main, container, false)

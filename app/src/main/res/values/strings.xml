@@ -71,6 +71,7 @@
     <string name="this_year">This year</string>
     <string name="this_month">This month</string>
     <string name="today">Today</string>
+    <string name="edit_table">Enter table name</string>
 
 
 </resources>
