@@ -20,7 +20,6 @@
     <string name="error_max_people_empty">Max People cannot be empty</string>
 
 
-
     <!-- LOGIN REGISTER-->
     <string name="sing_in">Sing in</string>
     <string name="email">Email</string>
