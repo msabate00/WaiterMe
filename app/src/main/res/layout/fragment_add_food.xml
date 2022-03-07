@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/frameLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".Admin.ManageFoods.AddFoodFragment" >
+
+        <TextView
+            android:id="@+id/tv_AddFood_Admin_Title"
+            style="@style/HeaderText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            android:text="@string/admin_panel"
+            android:textAllCaps="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_AddFood_Title"
+            style="@style/HeaderText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="128dp"
+            android:text="@string/add_Food_Title"
+            android:textAllCaps="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/bt_AddFood_Cancel"
+            android:layout_width="40dp"
+            android:layout_height="52dp"
+            android:layout_marginEnd="16dp"
+            android:backgroundTint="@color/cardview_shadow_end_color"
+            android:drawableTop="@android:drawable/ic_menu_revert"
+            app:iconPadding="0dp"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_AddFood_Admin_Title"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tv_AddFood_Admin_Title"
+            app:layout_constraintVertical_bias="0.571" />
+
+        <TextView
+            android:id="@+id/tv_AddFood_Name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="80dp"
+            android:text="@string/add_Food_name"
+            android:textColor="@color/red"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_AddFood_Title" />
+
+        <EditText
+            android:id="@+id/et_AddFood_Name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="@string/add_Food_name"
+            android:inputType="textPersonName"
+            app:layout_constraintStart_toStartOf="@+id/tv_AddFood_Name"
+            app:layout_constraintTop_toBottomOf="@+id/tv_AddFood_Name" />
+
+
+        <TextView
+            android:id="@+id/tv_AddFood_Max"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="56dp"
+            android:text="@string/add_Food_max"
+            android:textColor="@color/red"
+            app:layout_constraintStart_toStartOf="@+id/et_AddFood_Name"
+            app:layout_constraintTop_toBottomOf="@+id/et_AddFood_Name" />
+
+        <EditText
+            android:id="@+id/et_AddFood_Max"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="2"
+            android:inputType="number"
+            app:layout_constraintStart_toStartOf="@+id/tv_AddFood_Max"
+            app:layout_constraintTop_toBottomOf="@+id/tv_AddFood_Max" />
+
+        <Button
+            android:id="@+id/bt_AddFood_Add"
+            style="@style/AdminButton"
+            android:layout_marginBottom="64dp"
+            android:text="@string/add"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.495"
+            app:layout_constraintStart_toStartOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

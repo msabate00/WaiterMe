@@ -49,6 +49,9 @@
         <action
             android:id="@+id/action_adminMainFragment_to_manageTablesFragment"
             app:destination="@id/manageTablesFragment" />
+        <action
+            android:id="@+id/action_adminMainFragment_to_manageFoodFragment"
+            app:destination="@id/manageFoodFragment" />
     </fragment>
     <fragment
         android:id="@+id/manageTablesFragment"
@@ -65,6 +68,23 @@
         <action
             android:id="@+id/action_addTableFragment_to_manageTablesFragment"
             app:destination="@id/manageTablesFragment"
+            app:popUpTo="@id/adminMainFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/manageFoodFragment"
+        android:name="cat.copernic.msabatem.waiterme.Admin.ManageTables.ManageFoodFragment"
+        android:label="ManageFoodFragment" >
+        <action
+            android:id="@+id/action_manageFoodFragment_to_addFoodFragment"
+            app:destination="@id/addFoodFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addFoodFragment"
+        android:name="cat.copernic.msabatem.waiterme.Admin.ManageFood.AddFoodFragment"
+        android:label="AddFoodFragment" >
+        <action
+            android:id="@+id/action_addFoodFragment_to_manageFoodFragment"
+            app:destination="@id/manageFoodFragment"
             app:popUpTo="@id/adminMainFragment" />
     </fragment>
 </navigation>

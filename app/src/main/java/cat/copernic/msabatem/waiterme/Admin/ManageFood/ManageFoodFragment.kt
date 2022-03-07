@@ -33,8 +33,8 @@ class ManageFoodFragment : Fragment() {
         // Inflate the layout for this fragment
         binding = FragmentManageFoodBinding.inflate(inflater, container, false);
         initRecycle();
-        binding.btManageTablesAdd.setOnClickListener {
-            findNavController().navigate(ManageTablesFragmentDirections.actionManageTablesFragmentToAddTableFragment())
+        binding.btManageFoodAdd.setOnClickListener {
+            findNavController().navigate(ManageFoodFragmentDirections.actionManageFoodFragmentToAddFoodFragment())
         }
 
 
@@ -42,8 +42,8 @@ class ManageFoodFragment : Fragment() {
     }
 
     fun initRecycle(){
-        binding.rvManager.layoutManager = LinearLayoutManager(context);
-        Utils().getTables(requireParentFragment(), binding.rvManager)
+        binding.rvFoodAdminManager.layoutManager = LinearLayoutManager(context);
+        Utils().getFood(requireParentFragment(),binding.rvFoodAdminManager)
 
     }
 

@@ -31,6 +31,9 @@ class AdminMainFragment : Fragment() {
         binding.btAdminMainTablesMan.setOnClickListener {
             findNavController().navigate(AdminMainFragmentDirections.actionAdminMainFragmentToManageTablesFragment());
         }
+        binding.btAdminMainFoodMan.setOnClickListener {
+            findNavController().navigate(AdminMainFragmentDirections.actionAdminMainFragmentToManageFoodFragment());
+        }
 
         return binding.root;
        //return inflater.inflate(R.layout.fragment_admin_main, container, false)
