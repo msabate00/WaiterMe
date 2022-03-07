@@ -41,8 +41,9 @@ class TablesViewAdapter(val tables: ArrayList<Table>): RecyclerView.Adapter<Tabl
                 view.setBackgroundResource(R.color.green_2);
             }
             view.findViewById<TextView>(R.id.tv_Item_Table_name).text = table.name;
+            view.findViewById<TextView>(R.id.tv_Item_Table_people).text = "Max Ppl: " + table.max_people.toString();
             view.findViewById<ImageView>(R.id.iv_Item_Table_edit).setOnClickListener {
-                editDialog(view, table.id ?: 0);
+                editDialog(view,table, table.id ?: 0);
             }
             view.findViewById<ImageView>(R.id.iv_Item_Table_Delete).setOnClickListener {
                 Utils().deleteTable(table.id ?: 0);
@@ -50,17 +51,19 @@ class TablesViewAdapter(val tables: ArrayList<Table>): RecyclerView.Adapter<Tabl
             }
         }
 
-        private fun editDialog(view: View, id: Int){
+        private fun editDialog(view: View,table: Table, id: Int){
             val builder = AlertDialog.Builder(view.context);
             builder.setTitle(R.string.edit_table);
             val input_name = EditText(view.context);
             input_name.setPadding(10);
             input_name.width = 500;
+            input_name.setText(table.name);
 
             val input_max = EditText(view.context);
             input_max.setPadding(10);
             input_max.width = 500;
             input_max.inputType = TYPE_CLASS_NUMBER;
+            input_max.setText(table.max_people.toString());
 
             val layout = LinearLayout(view.context);
             layout.orientation = LinearLayout.VERTICAL;
