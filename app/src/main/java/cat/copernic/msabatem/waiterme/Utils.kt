@@ -8,6 +8,8 @@ import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
+import cat.copernic.msabatem.waiterme.Admin.ManageFood.Food
+import cat.copernic.msabatem.waiterme.Admin.ManageFood.FoodViewAdapter
 import cat.copernic.msabatem.waiterme.Admin.ManageTables.ManageTablesFragment
 import cat.copernic.msabatem.waiterme.Admin.ManageTables.Table
 import cat.copernic.msabatem.waiterme.Admin.ManageTables.TablesViewAdapter
@@ -133,6 +135,82 @@ class Utils {
 
             }
         })
+    }
+
+
+
+    fun getFood(f: Fragment, rv: RecyclerView){
+
+        val ref = databaseRef.child("locals/" + auth.uid.toString());
+        var foods: ArrayList<Food> = arrayListOf<Food>();
+
+        ref.child("foods").addListenerForSingleValueEvent(object: ValueEventListener{
+            override fun onDataChange(snapshot: DataSnapshot){
+
+                if(snapshot.exists()){
+                    for (foodSnapshot in snapshot.children) {
+                        var food = foodSnapshot.getValue<Food>();
+                        food!!.id = foodSnapshot.key!!.toInt();
+                        foods.add(food!!);
+                        rv.adapter = FoodViewAdapter(foods);
+                    }
+
+
+                    rv.adapter = FoodViewAdapter(foods);
+
+                }
+
+            }
+            override fun onCancelled(error: DatabaseError) {
+                Log.d("The read failed: " , "Error: "+ "code " + error.code + ", " + error.details );
+            }
+        });
+
+    }
+    fun addFood(name: String, price: Float){
+        val ref = databaseRef.child("locals/" + auth.uid.toString());
+        ref.child("foods").addListenerForSingleValueEvent(object: ValueEventListener{
+            override fun onDataChange(snapshot: DataSnapshot) {
+
+                val food = Food(name, price);
+                if(snapshot.exists()){
+                    var count = 0;
+                    for(snapshotData in snapshot.children){
+                        count = max(count, snapshotData.key!!.toInt() ?: 0);
+                    }
+                    count++;
+                    ref.child("foods").child(count.toString()).setValue(food);
+
+                }else{
+                    ref.child("foods").child("1").setValue(food);
+                }
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+
+            }
+        })
+    }
+    fun updateFood(name: String, price: Float, id: Int){
+        val ref = databaseRef.child("locals/" + auth.uid.toString()).child("foods")
+            .child(id.toString());
+        ref.addListenerForSingleValueEvent(object: ValueEventListener{
+            override fun onDataChange(snapshot: DataSnapshot) {
+                if(snapshot.exists()){
+                    ref.child("name").setValue(name);
+                    ref.child("price").setValue(price);
+                }
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+
+            }
+        })
+    }
+
+    fun deleteFood(id: Int){
+        databaseRef.child("locals/" + auth.uid.toString()).child("foods")
+            .child(id.toString()).removeValue();
     }
 
 
