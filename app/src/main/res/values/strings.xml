@@ -80,7 +80,12 @@
     <string name="edit_table">Enter table name</string>
     <string name="add_table_name">Name/ID</string>
     <string name="add_table_max">Max Ppl.</string>
+
+    <string name="add_Food_name">Name/ID</string>
+    <string name="add_Food_max">Price</string>
+
     <string name="add_table_Title">Add Table</string>
+    <string name="add_Food_Title">Add Food</string>
     <string name="added_table">The table was successfully added:</string>
 
 

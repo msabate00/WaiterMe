@@ -15,22 +15,22 @@ import androidx.recyclerview.widget.RecyclerView
 import cat.copernic.msabatem.waiterme.R
 import cat.copernic.msabatem.waiterme.Utils
 
-class FoodViewAdapter(val tables: ArrayList<Food>): RecyclerView.Adapter<FoodViewAdapter.TableHolder>(){
+class FoodViewAdapter(val foods: ArrayList<Food>): RecyclerView.Adapter<FoodViewAdapter.TableHolder>(){
 
     lateinit var parent: ViewGroup;
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TableHolder {
         this.parent = parent;
         val layoutInflater = LayoutInflater.from(parent.context);
-        return TableHolder(layoutInflater.inflate(R.layout.item_table, parent, false));
+        return TableHolder(layoutInflater.inflate(R.layout.item_food, parent, false));
     }
 
     override fun onBindViewHolder(holder: TableHolder, position: Int) {
-        holder.render(tables[position], position)
+        holder.render(foods[position], position)
     }
 
     override fun getItemCount(): Int {
-        return tables.size;
+        return foods.size;
     }
 
 
