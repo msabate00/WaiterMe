@@ -4,9 +4,11 @@ import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.os.Build
 import android.util.Log
+import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
+import cat.copernic.msabatem.waiterme.Admin.ManageTables.ManageTablesFragment
 import cat.copernic.msabatem.waiterme.Admin.ManageTables.Table
 import cat.copernic.msabatem.waiterme.Admin.ManageTables.TablesViewAdapter
 import com.google.firebase.auth.FirebaseAuth
@@ -110,7 +112,13 @@ class Utils {
         })
     }
 
-    fun EditAvaileableTable(id: Int, b: Boolean){
+    fun deleteTable(id: Int){
+        databaseRef.child("locals/" + auth.uid.toString()).child("tables")
+            .child(id.toString()).removeValue();
+    }
+
+
+    fun editAvaileableTable(id: Int, b: Boolean){
         val ref = databaseRef.child("locals/" + auth.uid.toString()).child("tables")
             .child(id.toString());
         ref.addListenerForSingleValueEvent(object: ValueEventListener{
@@ -126,6 +134,8 @@ class Utils {
             }
         })
     }
+
+
 
 
 

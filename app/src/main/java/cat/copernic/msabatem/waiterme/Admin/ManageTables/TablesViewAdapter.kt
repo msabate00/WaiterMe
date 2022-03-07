@@ -2,6 +2,7 @@ package cat.copernic.msabatem.waiterme.Admin.ManageTables
 
 import android.annotation.SuppressLint
 import android.app.AlertDialog
+import android.opengl.Visibility
 import android.text.InputType.TYPE_CLASS_NUMBER
 import android.view.LayoutInflater
 import android.view.View
@@ -42,6 +43,10 @@ class TablesViewAdapter(val tables: ArrayList<Table>): RecyclerView.Adapter<Tabl
             view.findViewById<TextView>(R.id.tv_Item_Table_name).text = table.name;
             view.findViewById<ImageView>(R.id.iv_Item_Table_edit).setOnClickListener {
                 editDialog(view, table.id ?: 0);
+            }
+            view.findViewById<ImageView>(R.id.iv_Item_Table_Delete).setOnClickListener {
+                Utils().deleteTable(table.id ?: 0);
+                view.visibility = View.GONE;
             }
         }
 
