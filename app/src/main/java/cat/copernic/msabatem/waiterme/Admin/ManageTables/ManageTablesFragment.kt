@@ -18,15 +18,7 @@ class ManageTablesFragment : Fragment() {
     private lateinit var binding: FragmentManageTablesBinding
 
 
-    val tables = listOf<Table>(
-        Table("1",2),
-        Table("2",2),
-        Table("3",2),
-        Table("4",2),
-        Table("5",2),
-        Table("6",2),
-        Table("7",2),
-    )
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -40,9 +32,6 @@ class ManageTablesFragment : Fragment() {
         // Inflate the layout for this fragment
         binding = FragmentManageTablesBinding.inflate(inflater, container, false);
         initRecycle();
-
-        Utils().getTables();
-
         binding.btManageTablesAdd.setOnClickListener {
             findNavController().navigate(ManageTablesFragmentDirections.actionManageTablesFragmentToAddTableFragment())
         }
@@ -53,8 +42,8 @@ class ManageTablesFragment : Fragment() {
 
     fun initRecycle(){
         binding.rvManager.layoutManager = LinearLayoutManager(context);
-        val adapter = TablesViewAdapter(tables);
-        binding.rvManager.adapter = adapter;
+        Utils().getTables(requireParentFragment(), binding.rvManager)
+
     }
 
 }
