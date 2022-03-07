@@ -12,6 +12,13 @@
     <string name="waiterme">WaiterMe</string>
     <string name="empty_values">There are empty fields</string>
     <string name="auth_failed">Authentication failed.</string>
+    <string name="add">Add</string>
+
+
+    <!-- ERRORES -->
+    <string name="error_name_empty">Name cannot be empty</string>
+    <string name="error_max_people_empty">Max People cannot be empty</string>
+
 
 
     <!-- LOGIN REGISTER-->
@@ -72,6 +79,10 @@
     <string name="this_month">This month</string>
     <string name="today">Today</string>
     <string name="edit_table">Enter table name</string>
+    <string name="add_table_name">Name/ID</string>
+    <string name="add_table_max">Max Ppl.</string>
+    <string name="add_table_Title">Add Table</string>
+    <string name="added_table">The table was successfully added:</string>
 
 
 </resources>

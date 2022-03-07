@@ -1,3 +1,6 @@
 package cat.copernic.msabatem.waiterme.Admin.ManageTables
 
-data class Table(var name: String)
+import com.google.firebase.database.IgnoreExtraProperties
+
+@IgnoreExtraProperties
+data class Table(val name: String? = null, val max_people: Int? = null, val available: Boolean = true);

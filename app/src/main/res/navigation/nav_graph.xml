@@ -53,5 +53,18 @@
     <fragment
         android:id="@+id/manageTablesFragment"
         android:name="cat.copernic.msabatem.waiterme.Admin.ManageTables.ManageTablesFragment"
-        android:label="ManageTablesFragment" />
+        android:label="ManageTablesFragment" >
+        <action
+            android:id="@+id/action_manageTablesFragment_to_addTableFragment"
+            app:destination="@id/addTableFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addTableFragment"
+        android:name="cat.copernic.msabatem.waiterme.Admin.ManageTables.AddTableFragment"
+        android:label="AddTableFragment" >
+        <action
+            android:id="@+id/action_addTableFragment_to_manageTablesFragment"
+            app:destination="@id/manageTablesFragment"
+            app:popUpTo="@id/adminMainFragment" />
+    </fragment>
 </navigation>

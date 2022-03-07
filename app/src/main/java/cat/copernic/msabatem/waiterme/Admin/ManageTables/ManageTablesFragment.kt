@@ -6,8 +6,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import cat.copernic.msabatem.waiterme.R
+import cat.copernic.msabatem.waiterme.Utils
 import cat.copernic.msabatem.waiterme.databinding.FragmentManageTablesBinding
 
 
@@ -17,14 +19,15 @@ class ManageTablesFragment : Fragment() {
 
 
     val tables = listOf<Table>(
-        Table("1"),
-        Table("2"),
-        Table("3"),
-        Table("4"),
-        Table("5"),
-        Table("6"),
-        Table("7"),
+        Table("1",2),
+        Table("2",2),
+        Table("3",2),
+        Table("4",2),
+        Table("5",2),
+        Table("6",2),
+        Table("7",2),
     )
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,6 +40,14 @@ class ManageTablesFragment : Fragment() {
         // Inflate the layout for this fragment
         binding = FragmentManageTablesBinding.inflate(inflater, container, false);
         initRecycle();
+
+        Utils().getTables();
+
+        binding.btManageTablesAdd.setOnClickListener {
+            findNavController().navigate(ManageTablesFragmentDirections.actionManageTablesFragmentToAddTableFragment())
+        }
+
+
         return binding.root
     }
 
