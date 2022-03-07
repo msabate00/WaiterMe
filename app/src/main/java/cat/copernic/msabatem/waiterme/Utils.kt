@@ -110,6 +110,23 @@ class Utils {
         })
     }
 
+    fun EditAvaileableTable(id: Int, b: Boolean){
+        val ref = databaseRef.child("locals/" + auth.uid.toString()).child("tables")
+            .child(id.toString());
+        ref.addListenerForSingleValueEvent(object: ValueEventListener{
+            override fun onDataChange(snapshot: DataSnapshot) {
+                if(snapshot.exists()){
+                    ref.child("available").setValue(b);
+
+                }
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+
+            }
+        })
+    }
+
 
 
 
