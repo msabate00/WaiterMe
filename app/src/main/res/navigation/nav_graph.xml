@@ -41,7 +41,11 @@
     <fragment
         android:id="@+id/receptionistMainFragment"
         android:name="cat.copernic.msabatem.waiterme.Recepcionist.ReceptionistMainFragment"
-        android:label="ReceptionistMainFragment" />
+        android:label="ReceptionistMainFragment" >
+        <action
+            android:id="@+id/action_receptionistMainFragment_to_recepcionistTablesFragment"
+            app:destination="@id/recepcionistTablesFragment" />
+    </fragment>
     <fragment
         android:id="@+id/adminMainFragment"
         android:name="cat.copernic.msabatem.waiterme.Admin.AdminMainFragment"
@@ -87,4 +91,9 @@
             app:destination="@id/manageFoodFragment"
             app:popUpTo="@id/adminMainFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/recepcionistTablesFragment"
+        android:name="cat.copernic.msabatem.waiterme.Recepcionist.Tables.RecepcionistTablesFragment"
+        android:label="fragment_recepcionist_tables"
+        tools:layout="@layout/fragment_recepcionist_tables" />
 </navigation>

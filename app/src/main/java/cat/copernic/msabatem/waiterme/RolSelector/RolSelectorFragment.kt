@@ -44,6 +44,10 @@ class RolSelectorFragment : Fragment() {
             adminDialog();
         }
 
+        binding.btRolSelectorReceptionist.setOnClickListener {
+            findNavController().navigate(RolSelectorFragmentDirections.actionRolSelectorFragmentToReceptionistMainFragment());
+        }
+
 
         return binding.root;
         //return inflater.inflate(R.layout.fragment_login, container, false)

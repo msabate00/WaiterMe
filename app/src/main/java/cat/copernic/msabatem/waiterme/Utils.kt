@@ -20,6 +20,8 @@ import cat.copernic.msabatem.waiterme.Admin.ManageFood.FoodViewAdapter
 import cat.copernic.msabatem.waiterme.Admin.ManageTables.ManageTablesFragment
 import cat.copernic.msabatem.waiterme.Admin.ManageTables.Table
 import cat.copernic.msabatem.waiterme.Admin.ManageTables.TablesViewAdapter
+import cat.copernic.msabatem.waiterme.Recepcionist.Tables.TableR
+import cat.copernic.msabatem.waiterme.Recepcionist.Tables.TablesRViewAdapter
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.DataSnapshot
@@ -251,6 +253,34 @@ class Utils {
             iv.setImageBitmap(bitmap)
         }.addOnFailureListener {
         }
+    }
+
+
+
+    fun getTablesR(f: Fragment, rv: RecyclerView){
+
+        val ref = databaseRef.child("locals/" + auth.uid.toString());
+        var tables: ArrayList<TableR> = arrayListOf<TableR>();
+
+        ref.child("tables").addListenerForSingleValueEvent(object: ValueEventListener{
+            override fun onDataChange(snapshot: DataSnapshot){
+
+                if(snapshot.exists()){
+                    for (tableSnapshot in snapshot.children) {
+                        var table = tableSnapshot.getValue<TableR>();
+                        table!!.id = tableSnapshot.key!!.toInt();
+                        tables.add(table!!);
+                        rv.adapter = TablesRViewAdapter(tables);
+                    }
+                    rv.adapter = TablesRViewAdapter(tables);
+                }
+
+            }
+            override fun onCancelled(error: DatabaseError) {
+                Log.d("The read failed: " , "Error: "+ "code " + error.code + ", " + error.details );
+            }
+        });
+
     }
 
 }
