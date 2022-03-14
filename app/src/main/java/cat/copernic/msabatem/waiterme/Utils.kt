@@ -1,11 +1,17 @@
 package cat.copernic.msabatem.waiterme
 
+import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
+import android.net.Uri
 import android.os.Build
+import android.os.Environment
+import android.provider.MediaStore
 import android.util.Log
 import android.widget.Toast
 import androidx.annotation.RequiresApi
+import androidx.core.app.ActivityCompat.startActivityForResult
+import androidx.core.content.FileProvider
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import cat.copernic.msabatem.waiterme.Admin.ManageFood.Food
@@ -21,16 +27,36 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.ktx.getValue
 import com.google.firebase.ktx.Firebase
+import com.google.firebase.storage.FirebaseStorage
+import com.google.firebase.storage.StorageReference
+import com.google.firebase.storage.ktx.FirebaseStorageKtxRegistrar
+import java.io.File
+import java.io.IOException
 import java.math.BigInteger
+import java.net.URI
 import java.security.MessageDigest
+import java.text.SimpleDateFormat
 import java.time.LocalDate
+import java.util.*
+import kotlin.collections.ArrayList
 import kotlin.math.max
 
 class Utils {
     private val database = FirebaseDatabase.getInstance("https://waiterme-default-rtdb.europe-west1.firebasedatabase.app/");
+    private val storage = FirebaseStorage.getInstance("gs://waiterme.appspot.com");
+
+
     private val auth = Firebase.auth;
     private val databaseRef = database.reference;
+    private val storageRef = storage.getReference().child("/locals/${auth.uid}/images/")
 
+
+    fun getStorage(): FirebaseStorage {
+        return storage;
+    }
+    fun getStorageRef(): StorageReference {
+        return storageRef;
+    }
 
     fun getDatabase(): FirebaseDatabase {
         return database;
@@ -212,11 +238,4 @@ class Utils {
         databaseRef.child("locals/" + auth.uid.toString()).child("foods")
             .child(id.toString()).removeValue();
     }
-
-
-
-
-
-
-
 }

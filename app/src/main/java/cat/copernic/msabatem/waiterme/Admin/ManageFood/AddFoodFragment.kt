@@ -1,22 +1,41 @@
 package cat.copernic.msabatem.waiterme.Admin.ManageFood
 
+import android.app.AlertDialog
+import android.content.DialogInterface
+import android.content.Intent
+import android.graphics.Bitmap
+import android.net.Uri
 import android.os.Bundle
+import android.os.Environment
+import android.provider.MediaStore
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.app.ActivityCompat
+import androidx.core.content.FileProvider
 import androidx.navigation.fragment.findNavController
 import cat.copernic.msabatem.waiterme.Admin.ManageFood.AddFoodFragmentDirections
+import cat.copernic.msabatem.waiterme.MainActivity
 import cat.copernic.msabatem.waiterme.R
 import cat.copernic.msabatem.waiterme.Utils
 import cat.copernic.msabatem.waiterme.databinding.FragmentAddFoodBinding
-
+import com.google.firebase.auth.FirebaseAuth
+import java.io.ByteArrayOutputStream
+import java.io.File
+import java.io.IOException
+import java.text.SimpleDateFormat
+import java.util.*
 
 
 class AddFoodFragment : Fragment() {
 
     private lateinit var binding: FragmentAddFoodBinding
+
+    private lateinit var currentPhotoPath: String;
+    private lateinit var currentPhotoURI: Uri;
+    private lateinit var currentPhotoName: String;
 
 
 
@@ -49,9 +68,41 @@ class AddFoodFragment : Fragment() {
 
         }
 
+        val builder: AlertDialog.Builder? = this.let {
+            AlertDialog.Builder(context)
+        }
+        builder?.setMessage("Selecciona el método")?.setPositiveButton("Camara",
+            DialogInterface.OnClickListener { dialog, id ->
+                openCamera();
+            })?.setNegativeButton("Galeria",
+            DialogInterface.OnClickListener { dialog, id ->
+                openGallery();
+            })
+        val dialog: AlertDialog? = builder?.create()
+        builder?.create();
+
+        binding.ivAddFoodImageAdd.setOnClickListener { view ->
+            builder?.show()
+        }
+
 
         return binding.root
     }
+
+
+
+    fun openCamera() {
+        (activity as MainActivity).openCamera(1);
+    }
+
+
+    fun openGallery(){
+        (activity as MainActivity).openGallery(2);
+    }
+
+
+
+
 
 
 }
