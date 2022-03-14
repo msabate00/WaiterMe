@@ -51,7 +51,9 @@ class FoodViewAdapter(val activity1: MainActivity,val foods: ArrayList<Food>): R
                 view.setBackgroundResource(R.color.green_2);
             }
             view.findViewById<TextView>(R.id.tv_Item_Food_name).text = food.name;
-            view.findViewById<TextView>(R.id.tv_Item_Food_people).text = "Max Ppl: " + food.price;
+            view.findViewById<TextView>(R.id.tv_Item_Food_people).text =
+                activity.getText(R.string.price).toString() +
+                        " " + food.price + activity.getText(R.string.price_subfix) ;
             view.findViewById<ImageView>(R.id.iv_Item_Food_edit).setOnClickListener {
                 editDialog(view,food, food.id ?: 0);
             }
@@ -60,7 +62,7 @@ class FoodViewAdapter(val activity1: MainActivity,val foods: ArrayList<Food>): R
             }
 
             view.findViewById<ImageView>(R.id.iv_Item_Food_Delete).setOnClickListener {
-                Utils().deleteTable(food.id ?: 0);
+                Utils().deleteFood(food.id ?: 0);
                 view.visibility = View.GONE;
             }
 
@@ -71,7 +73,7 @@ class FoodViewAdapter(val activity1: MainActivity,val foods: ArrayList<Food>): R
 
         private fun editDialog(view: View, food: Food, id: Int){
             val builder = AlertDialog.Builder(view.context);
-            builder.setTitle(R.string.edit_table);
+            builder.setTitle(R.string.edit_food);
             val input_name = EditText(view.context);
             input_name.setPadding(10);
             input_name.width = 500;
@@ -92,7 +94,7 @@ class FoodViewAdapter(val activity1: MainActivity,val foods: ArrayList<Food>): R
             tv1.text = "Name:";
 
             val tv2 = TextView(view.context);
-            tv2.text = "Max Pepl."
+            tv2.text = activity.getText(R.string.price)
 
             label1.addView(tv1);
             label1.addView(input_name);
@@ -110,8 +112,12 @@ class FoodViewAdapter(val activity1: MainActivity,val foods: ArrayList<Food>): R
             builder.setPositiveButton(R.string.dialog_ok){
                     dialog, which ->
 
-                Utils().updateTable(input_name.text.toString(), input_max.text.toString().toInt(), id);
-                view.findViewById<TextView>(R.id.tv_Item_Table_name).text = input_name.text.toString();
+                Utils().updateFood(input_name.text.toString(), input_max.text.toString().toFloat(), id);
+                view.findViewById<TextView>(R.id.tv_Item_Food_name).text =  input_name.text.toString();
+                view.findViewById<TextView>(R.id.tv_Item_Food_people).text =
+                    activity.getText(R.string.price).toString() +
+                            " " +  input_max.text.toString() + activity.getText(R.string.price_subfix) ;
+
             }
             builder.setNegativeButton(R.string.dialog_cancel){
                     dialog, which -> dialog.cancel();

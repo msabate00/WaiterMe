@@ -89,6 +89,7 @@
     <string name="added_table">The table was successfully added:</string>
     <string name="price">Price: </string>
     <string name="price_subfix">$</string>
+    <string name="edit_food">Enter food name</string>
     
     <string name="upload_picture_method">Select method</string>
     <string name="galery">GALERY</string>
