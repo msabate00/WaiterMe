@@ -3,6 +3,8 @@ package cat.copernic.msabatem.waiterme.Recepcionist.Tables
 import android.annotation.SuppressLint
 import android.app.AlertDialog
 import android.content.DialogInterface
+import android.graphics.Color
+import android.graphics.PorterDuff
 import android.text.InputType
 import android.util.Log
 import android.view.LayoutInflater
@@ -39,6 +41,10 @@ class TablesRViewAdapter(val tables: ArrayList<TableR>): RecyclerView.Adapter<Ta
         @SuppressLint("ResourceAsColor")
         fun render(table: TableR, pos: Int){
             view.findViewById<Button>(R.id.btn_Item_TableR).text = table.name;
+            if(!table.available){
+                view.findViewById<Button>(R.id.btn_Item_TableR).isEnabled = false;
+                view.findViewById<Button>(R.id.btn_Item_TableR).alpha = 0.5f;
+            }
             view.findViewById<Button>(R.id.btn_Item_TableR).setOnClickListener {
                 openDialog(view, table, table.id ?: 0);
             }
@@ -48,9 +54,11 @@ class TablesRViewAdapter(val tables: ArrayList<TableR>): RecyclerView.Adapter<Ta
             val builder: AlertDialog.Builder = this.let {
                 AlertDialog.Builder(view.context)
             }
-            builder.setMessage("Selecciona el método")?.setPositiveButton(R.string.dialog_ok,
+            builder.setMessage(R.string.take_up_the_table)?.setPositiveButton(R.string.take_it,
                 DialogInterface.OnClickListener { dialog, id ->
                     view.findViewById<Button>(R.id.btn_Item_TableR).isEnabled = false;
+                    view.findViewById<Button>(R.id.btn_Item_TableR).alpha = 0.5f;
+                    Utils().editAvaileableTable(id, false);
                 })?.setNegativeButton(R.string.dialog_cancel,
                 DialogInterface.OnClickListener { dialog, id ->
 

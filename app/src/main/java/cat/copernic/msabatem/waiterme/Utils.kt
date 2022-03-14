@@ -152,11 +152,12 @@ class Utils {
     fun editAvaileableTable(id: Int, b: Boolean){
         val ref = databaseRef.child("locals/" + auth.uid.toString()).child("tables")
             .child(id.toString());
+        Log.i("AYUDA", "FALLA PORQUE EL TableR no esta en la bbdd y si el table");
         ref.addListenerForSingleValueEvent(object: ValueEventListener{
             override fun onDataChange(snapshot: DataSnapshot) {
                 if(snapshot.exists()){
-                    ref.child("available").setValue(b);
 
+                    ref.child("available").setValue(b);
                 }
             }
 
