@@ -102,15 +102,6 @@
             app:layout_constraintHorizontal_bias="0.495"
             app:layout_constraintStart_toStartOf="parent" />
 
-        <ImageView
-            android:id="@+id/iv_AddFood_ImageAdd"
-            android:layout_width="75dp"
-            android:layout_height="75dp"
-            android:layout_marginTop="24dp"
-            app:layout_constraintStart_toStartOf="@+id/et_AddFood_Max"
-            app:layout_constraintTop_toBottomOf="@+id/et_AddFood_Max"
-            app:srcCompat="@android:drawable/ic_menu_camera" />
-
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

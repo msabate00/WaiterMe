@@ -87,6 +87,15 @@
     <string name="add_table_Title">Add Table</string>
     <string name="add_Food_Title">Add Food</string>
     <string name="added_table">The table was successfully added:</string>
+    <string name="price">Price: </string>
+    <string name="price_subfix">$</string>
+    
+    <string name="upload_picture_method">Select method</string>
+    <string name="galery">GALERY</string>
+    <string name="camera">CAMERA</string>
+    
+    <string name="has_been_uploaded_successfully">Has been uploaded successfully</string>
+    <string name="operation_was_canceled">Operation was canceled</string>
 
 
 </resources>

@@ -8,6 +8,7 @@ import android.os.Build
 import android.os.Environment
 import android.provider.MediaStore
 import android.util.Log
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.core.app.ActivityCompat.startActivityForResult
@@ -165,7 +166,7 @@ class Utils {
 
 
 
-    fun getFood(f: Fragment, rv: RecyclerView){
+    fun getFood(f: Fragment, rv: RecyclerView, activity: MainActivity){
 
         val ref = databaseRef.child("locals/" + auth.uid.toString());
         var foods: ArrayList<Food> = arrayListOf<Food>();
@@ -178,11 +179,11 @@ class Utils {
                         var food = foodSnapshot.getValue<Food>();
                         food!!.id = foodSnapshot.key!!.toInt();
                         foods.add(food!!);
-                        rv.adapter = FoodViewAdapter(foods);
+                        rv.adapter = FoodViewAdapter(activity,foods);
                     }
 
 
-                    rv.adapter = FoodViewAdapter(foods);
+                    rv.adapter = FoodViewAdapter(activity,foods);
 
                 }
 
@@ -238,4 +239,18 @@ class Utils {
         databaseRef.child("locals/" + auth.uid.toString()).child("foods")
             .child(id.toString()).removeValue();
     }
+
+    fun getFoodImage(id: Int, iv: ImageView){
+        val pic = storageRef.child("/food/id_$id.jpg");
+        Log.i("AYUDA", pic.path + " | " + pic.path)
+        val picBytes = pic.getBytes(5000000)
+
+        picBytes.addOnSuccessListener {
+            var bitmap = BitmapFactory.decodeByteArray( it, 0, it.size )
+
+            iv.setImageBitmap(bitmap)
+        }.addOnFailureListener {
+        }
+    }
+
 }

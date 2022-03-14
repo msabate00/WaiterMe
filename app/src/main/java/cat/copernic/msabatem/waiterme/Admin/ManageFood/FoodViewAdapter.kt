@@ -2,6 +2,7 @@ package cat.copernic.msabatem.waiterme.Admin.ManageFood
 
 import android.annotation.SuppressLint
 import android.app.AlertDialog
+import android.content.DialogInterface
 import android.text.InputType
 import android.view.LayoutInflater
 import android.view.View
@@ -12,20 +13,24 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.core.view.setPadding
 import androidx.recyclerview.widget.RecyclerView
+import cat.copernic.msabatem.waiterme.MainActivity
 import cat.copernic.msabatem.waiterme.R
 import cat.copernic.msabatem.waiterme.Utils
 
-class FoodViewAdapter(val foods: ArrayList<Food>): RecyclerView.Adapter<FoodViewAdapter.TableHolder>(){
+class FoodViewAdapter(val activity1: MainActivity,val foods: ArrayList<Food>): RecyclerView.Adapter<FoodViewAdapter.FoodHolder>(){
 
     lateinit var parent: ViewGroup;
+    val activity = activity1;
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TableHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FoodHolder {
+
         this.parent = parent;
         val layoutInflater = LayoutInflater.from(parent.context);
-        return TableHolder(layoutInflater.inflate(R.layout.item_food, parent, false));
+        return FoodHolder(layoutInflater.inflate(R.layout.item_food, parent, false), activity);
     }
 
-    override fun onBindViewHolder(holder: TableHolder, position: Int) {
+
+    override fun onBindViewHolder(holder: FoodHolder, position: Int) {
         holder.render(foods[position], position)
     }
 
@@ -34,9 +39,12 @@ class FoodViewAdapter(val foods: ArrayList<Food>): RecyclerView.Adapter<FoodView
     }
 
 
-    class TableHolder(val view: View): RecyclerView.ViewHolder(view){
+    class FoodHolder(val view: View, val activity: MainActivity): RecyclerView.ViewHolder(view){
         @SuppressLint("ResourceAsColor")
         fun render(food: Food, pos: Int){
+
+            Utils().getFoodImage(food.id ?: 0, view.findViewById(R.id.iv_Item_Food_Image))
+
             if(pos%2==0){
                 view.setBackgroundResource(R.color.green);
             }else{
@@ -47,10 +55,18 @@ class FoodViewAdapter(val foods: ArrayList<Food>): RecyclerView.Adapter<FoodView
             view.findViewById<ImageView>(R.id.iv_Item_Food_edit).setOnClickListener {
                 editDialog(view,food, food.id ?: 0);
             }
+            view.findViewById<ImageView>(R.id.iv_Item_Food_Image).setOnClickListener {
+                editImage(view, food, food.id ?: 0);
+            }
+
             view.findViewById<ImageView>(R.id.iv_Item_Food_Delete).setOnClickListener {
                 Utils().deleteTable(food.id ?: 0);
                 view.visibility = View.GONE;
             }
+
+
+
+
         }
 
         private fun editDialog(view: View, food: Food, id: Int){
@@ -101,13 +117,24 @@ class FoodViewAdapter(val foods: ArrayList<Food>): RecyclerView.Adapter<FoodView
                     dialog, which -> dialog.cancel();
             }
             builder.show();
-
-
         }
 
+        fun editImage(view: View, food: Food, idt: Int){
+            val builder: AlertDialog.Builder? = this.let {
+                AlertDialog.Builder(view.context)
+            }
+            builder?.setMessage(R.string.upload_picture_method)?.setPositiveButton(R.string.camera,
+                DialogInterface.OnClickListener { dialog, id ->
 
+                   activity.openCamera(1, idt.toString());
+                })?.setNegativeButton(R.string.galery,
+                DialogInterface.OnClickListener { dialog, id ->
+                    activity.openGallery(2, idt.toString());
+                })
+            val dialog: AlertDialog? = builder?.create()
+            builder?.create();
+            builder?.show()
+        }
 
     }
-
-
 }

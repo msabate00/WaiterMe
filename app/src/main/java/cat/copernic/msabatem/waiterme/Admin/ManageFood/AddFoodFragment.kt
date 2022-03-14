@@ -67,42 +67,6 @@ class AddFoodFragment : Fragment() {
             }
 
         }
-
-        val builder: AlertDialog.Builder? = this.let {
-            AlertDialog.Builder(context)
-        }
-        builder?.setMessage("Selecciona el método")?.setPositiveButton("Camara",
-            DialogInterface.OnClickListener { dialog, id ->
-                openCamera();
-            })?.setNegativeButton("Galeria",
-            DialogInterface.OnClickListener { dialog, id ->
-                openGallery();
-            })
-        val dialog: AlertDialog? = builder?.create()
-        builder?.create();
-
-        binding.ivAddFoodImageAdd.setOnClickListener { view ->
-            builder?.show()
-        }
-
-
         return binding.root
     }
-
-
-
-    fun openCamera() {
-        (activity as MainActivity).openCamera(1);
-    }
-
-
-    fun openGallery(){
-        (activity as MainActivity).openGallery(2);
-    }
-
-
-
-
-
-
 }

@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import cat.copernic.msabatem.waiterme.MainActivity
 import cat.copernic.msabatem.waiterme.R
 import cat.copernic.msabatem.waiterme.Utils
 import cat.copernic.msabatem.waiterme.databinding.FragmentManageFoodBinding
@@ -43,7 +44,7 @@ class ManageFoodFragment : Fragment() {
 
     fun initRecycle(){
         binding.rvFoodAdminManager.layoutManager = LinearLayoutManager(context);
-        Utils().getFood(requireParentFragment(),binding.rvFoodAdminManager)
+        Utils().getFood(requireParentFragment(),binding.rvFoodAdminManager, activity as MainActivity)
 
     }
 

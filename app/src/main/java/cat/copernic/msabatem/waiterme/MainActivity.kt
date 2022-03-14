@@ -21,6 +21,7 @@ class MainActivity : AppCompatActivity() {
 
     lateinit var currentPhotoPath: String
     lateinit var currentPhotoName: String
+    lateinit var currentPhotoIDName: String
     lateinit var currentPhotoURI: Uri
 
 
@@ -31,13 +32,13 @@ class MainActivity : AppCompatActivity() {
 
 
 
-    public fun openGallery(code: Int = 2) {
+    public fun openGallery(code: Int = 2, name: String = "0") {
         val gallery = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI)
-
+        currentPhotoIDName = name;
         startActivityForResult(gallery, code)
     }
 
-    public fun openCamera(code: Int = 1) {
+    public fun openCamera(code: Int = 1, name: String = "0") {
         Intent(MediaStore.ACTION_IMAGE_CAPTURE).also { takePictureIntent ->
             // Ensure that there's a camera activity to handle the intent
             takePictureIntent.resolveActivity(packageManager)?.also {
@@ -56,6 +57,7 @@ class MainActivity : AppCompatActivity() {
                         "cat.copernic.msabatem.waiterme",
                         it
                     )
+                    currentPhotoIDName = name;
                     currentPhotoURI = photoURI;
                     takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI)
                     startActivityForResult(takePictureIntent, code)
@@ -102,18 +104,18 @@ class MainActivity : AppCompatActivity() {
                 val dadesbytes = outba.toByteArray();
 
                 val pathReferenceSubir =
-                    storageRef.child("/$currentPhotoName")
+                    storageRef.child("/id_$currentPhotoIDName.jpg")
 
                 pathReferenceSubir.putBytes(dadesbytes);
 
                 Toast.makeText(
                     applicationContext,
-                    "Has been uploaded successfully",
+                    R.string.has_been_uploaded_successfully,
                     Toast.LENGTH_SHORT
                 ).show()
 
             } else {
-                Toast.makeText(applicationContext, "Operation was canceled", Toast.LENGTH_SHORT)
+                Toast.makeText(applicationContext, R.string.operation_was_canceled, Toast.LENGTH_SHORT)
                     .show()
             }
         } else if (requestCode == 2) {
@@ -124,8 +126,6 @@ class MainActivity : AppCompatActivity() {
                     MediaStore.Images.Media.getBitmap(getContentResolver(), data.getData())
                 var outba = ByteArrayOutputStream();
 
-                val timeStamp: String = SimpleDateFormat("yyyyMMdd_HHmmss").format(Date())
-                val prefix = "JPEG_${timeStamp}_";
 
                 bitmaps.compress(
                     Bitmap.CompressFormat.JPEG,
@@ -135,16 +135,16 @@ class MainActivity : AppCompatActivity() {
                 val dadesbytes = outba.toByteArray();
 
                 val pathReferenceSubir =
-                    storageRef.child("/$prefix.jpg")
+                    storageRef.child("/id_$currentPhotoIDName.jpg")
                 pathReferenceSubir.putBytes(dadesbytes);
                 Toast.makeText(
                     applicationContext,
-                    "Has been uploaded successfully",
+                    R.string.has_been_uploaded_successfully,
                     Toast.LENGTH_SHORT
                 ).show()
 
             } else {
-                Toast.makeText(applicationContext, "Operation was canceled", Toast.LENGTH_SHORT)
+                Toast.makeText(applicationContext, R.string.operation_was_canceled, Toast.LENGTH_SHORT)
                     .show()
             }
 
