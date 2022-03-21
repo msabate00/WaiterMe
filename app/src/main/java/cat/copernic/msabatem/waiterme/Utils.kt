@@ -10,6 +10,7 @@ import cat.copernic.msabatem.waiterme.Admin.ManageFood.FoodViewAdapter
 import cat.copernic.msabatem.waiterme.Admin.ManageTables.Table
 import cat.copernic.msabatem.waiterme.Admin.ManageTables.TablesViewAdapter
 import cat.copernic.msabatem.waiterme.Recepcionist.Tables.TablesRViewAdapter
+import cat.copernic.msabatem.waiterme.Waiter.Tables.Details.Orders.FoodsWViewAdapter
 import cat.copernic.msabatem.waiterme.Waiter.Tables.TablesWViewAdapter
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
@@ -39,6 +40,9 @@ class Utils {
         const val TABLE_ADMIN = 1;
         const val TABLE_RECEPTIONIS = 2;
         const val TABLE_WAITER = 3;
+
+        const val FOOD_ADMIN = 1;
+        const val FOOD_WAITER = 3;
 
     }
 
@@ -161,7 +165,7 @@ class Utils {
 
 
 
-    fun getFood(f: Fragment, rv: RecyclerView, activity: MainActivity){
+    fun getFood(f: Fragment, rv: RecyclerView, activity: MainActivity, type: Int){
 
         val ref = databaseRef.child("locals/" + auth.uid.toString());
         var foods: ArrayList<Food> = arrayListOf<Food>();
@@ -174,9 +178,13 @@ class Utils {
                         var food = foodSnapshot.getValue<Food>();
                         food!!.id = foodSnapshot.key!!.toInt();
                         foods.add(food!!);
-                        rv.adapter = FoodViewAdapter(activity,foods);
+                        when(type){
+                            FOOD_ADMIN -> rv.adapter = FoodViewAdapter(activity,foods);
+                            FOOD_WAITER -> rv.adapter = FoodsWViewAdapter(foods);
+                        }
+
                     }
-                    rv.adapter = FoodViewAdapter(activity,foods);
+                    //rv.adapter = FoodViewAdapter(activity,foods);
                 }
 
             }

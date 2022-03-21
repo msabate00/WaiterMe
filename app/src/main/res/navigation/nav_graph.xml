@@ -115,5 +115,16 @@
         <argument
             android:name="table"
             app:argType="cat.copernic.msabatem.waiterme.Admin.ManageTables.Table" />
+        <action
+            android:id="@+id/action_tableWaiterDetailFragment_to_foodSelectorFragment"
+            app:destination="@id/foodSelectorFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/foodSelectorFragment"
+        android:name="cat.copernic.msabatem.waiterme.Waiter.Tables.Details.Orders.FoodSelectorFragment"
+        android:label="FoodSelectorFragment" >
+        <argument
+            android:name="table"
+            app:argType="cat.copernic.msabatem.waiterme.Admin.ManageTables.Table" />
     </fragment>
 </navigation>

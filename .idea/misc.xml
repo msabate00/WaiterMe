@@ -5,8 +5,10 @@
       <map>
         <entry key="..\:/Android_Studio_Proyectos/WaiterMe/app/src/main/res/layout/activity_main.xml" value="0.13333333333333333" />
         <entry key="..\:/Android_Studio_Proyectos/WaiterMe/app/src/main/res/layout/fragment_add_food.xml" value="0.264" />
+        <entry key="..\:/Android_Studio_Proyectos/WaiterMe/app/src/main/res/layout/fragment_add_order.xml" value="0.259375" />
         <entry key="..\:/Android_Studio_Proyectos/WaiterMe/app/src/main/res/layout/fragment_add_table.xml" value="0.264" />
         <entry key="..\:/Android_Studio_Proyectos/WaiterMe/app/src/main/res/layout/fragment_admin_main.xml" value="0.259375" />
+        <entry key="..\:/Android_Studio_Proyectos/WaiterMe/app/src/main/res/layout/fragment_food_selector.xml" value="0.259375" />
         <entry key="..\:/Android_Studio_Proyectos/WaiterMe/app/src/main/res/layout/fragment_login.xml" value="0.4839650145772595" />
         <entry key="..\:/Android_Studio_Proyectos/WaiterMe/app/src/main/res/layout/fragment_manage_food.xml" value="0.259375" />
         <entry key="..\:/Android_Studio_Proyectos/WaiterMe/app/src/main/res/layout/fragment_manage_tables.xml" value="0.4" />
@@ -14,8 +16,10 @@
         <entry key="..\:/Android_Studio_Proyectos/WaiterMe/app/src/main/res/layout/fragment_receptionist_main.xml" value="0.259375" />
         <entry key="..\:/Android_Studio_Proyectos/WaiterMe/app/src/main/res/layout/fragment_rol_selector.xml" value="0.11666666666666667" />
         <entry key="..\:/Android_Studio_Proyectos/WaiterMe/app/src/main/res/layout/fragment_table_waiter_detail.xml" value="0.264" />
+        <entry key="..\:/Android_Studio_Proyectos/WaiterMe/app/src/main/res/layout/fragment_table_waiter_food_selector.xml" value="0.259375" />
         <entry key="..\:/Android_Studio_Proyectos/WaiterMe/app/src/main/res/layout/fragment_waiter_main.xml" value="0.11614583333333334" />
         <entry key="..\:/Android_Studio_Proyectos/WaiterMe/app/src/main/res/layout/item_food.xml" value="0.259375" />
+        <entry key="..\:/Android_Studio_Proyectos/WaiterMe/app/src/main/res/layout/item_foodw.xml" value="0.259375" />
         <entry key="..\:/Android_Studio_Proyectos/WaiterMe/app/src/main/res/layout/item_table.xml" value="0.259375" />
         <entry key="..\:/Android_Studio_Proyectos/WaiterMe/app/src/main/res/layout/item_tabler.xml" value="0.4" />
         <entry key="..\:/Android_Studio_Proyectos/WaiterMe/app/src/main/res/layout/item_tablew.xml" value="0.11614583333333334" />

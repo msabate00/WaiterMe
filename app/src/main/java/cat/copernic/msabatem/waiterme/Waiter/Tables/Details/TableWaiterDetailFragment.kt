@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import cat.copernic.msabatem.waiterme.R
 import cat.copernic.msabatem.waiterme.databinding.FragmentTableWaiterDetailBinding
@@ -29,6 +30,11 @@ class TableWaiterDetailFragment : Fragment() {
         binding = FragmentTableWaiterDetailBinding.inflate(inflater, container, false);
 
         binding.tvWaiterTableDetailName.text = "${getString(R.string.table)}: ${args.table.name}";
+
+
+        binding.btWaiterTableDetailNewOrder.setOnClickListener {
+            findNavController().navigate(TableWaiterDetailFragmentDirections.actionTableWaiterDetailFragmentToFoodSelectorFragment(args.table))
+        }
 
 
         return binding.root;

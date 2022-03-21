@@ -44,7 +44,7 @@ class ManageFoodFragment : Fragment() {
 
     fun initRecycle(){
         binding.rvFoodAdminManager.layoutManager = LinearLayoutManager(context);
-        Utils().getFood(requireParentFragment(),binding.rvFoodAdminManager, activity as MainActivity)
+        Utils().getFood(requireParentFragment(),binding.rvFoodAdminManager, activity as MainActivity, Utils.FOOD_ADMIN)
 
     }
 
