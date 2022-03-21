@@ -42,7 +42,7 @@ class RecepcionistTablesFragment : Fragment() {
 
     fun initRecycle(){
         binding.rvRecepcionistTables.layoutManager = GridLayoutManager(context, 4);
-        Utils().getTablesR(requireParentFragment(), binding.rvRecepcionistTables)
+        Utils().getTables(requireParentFragment(), binding.rvRecepcionistTables, Utils.TABLE_RECEPTIONIS)
 
     }
 

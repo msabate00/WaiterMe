@@ -42,7 +42,7 @@ class ManageTablesFragment : Fragment() {
 
     fun initRecycle(){
         binding.rvManager.layoutManager = LinearLayoutManager(context);
-        Utils().getTables(requireParentFragment(), binding.rvManager)
+        Utils().getTables(requireParentFragment(), binding.rvManager, Utils.TABLE_ADMIN)
 
     }
 

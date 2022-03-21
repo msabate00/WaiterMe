@@ -1,26 +1,14 @@
 package cat.copernic.msabatem.waiterme
 
-import android.content.Intent
-import android.graphics.Bitmap
 import android.graphics.BitmapFactory
-import android.net.Uri
-import android.os.Build
-import android.os.Environment
-import android.provider.MediaStore
 import android.util.Log
 import android.widget.ImageView
-import android.widget.Toast
-import androidx.annotation.RequiresApi
-import androidx.core.app.ActivityCompat.startActivityForResult
-import androidx.core.content.FileProvider
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import cat.copernic.msabatem.waiterme.Admin.ManageFood.Food
 import cat.copernic.msabatem.waiterme.Admin.ManageFood.FoodViewAdapter
-import cat.copernic.msabatem.waiterme.Admin.ManageTables.ManageTablesFragment
 import cat.copernic.msabatem.waiterme.Admin.ManageTables.Table
 import cat.copernic.msabatem.waiterme.Admin.ManageTables.TablesViewAdapter
-import cat.copernic.msabatem.waiterme.Recepcionist.Tables.TableR
 import cat.copernic.msabatem.waiterme.Recepcionist.Tables.TablesRViewAdapter
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
@@ -32,15 +20,8 @@ import com.google.firebase.database.ktx.getValue
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
-import com.google.firebase.storage.ktx.FirebaseStorageKtxRegistrar
-import java.io.File
-import java.io.IOException
 import java.math.BigInteger
-import java.net.URI
 import java.security.MessageDigest
-import java.text.SimpleDateFormat
-import java.time.LocalDate
-import java.util.*
 import kotlin.collections.ArrayList
 import kotlin.math.max
 
@@ -53,6 +34,11 @@ class Utils {
     private val databaseRef = database.reference;
     private val storageRef = storage.getReference().child("/locals/${auth.uid}/images/")
 
+    companion object{
+        const val TABLE_ADMIN = 1;
+        const val TABLE_RECEPTIONIS = 2;
+
+    }
 
     fun getStorage(): FirebaseStorage {
         return storage;
@@ -74,7 +60,7 @@ class Utils {
 
 
 
-    fun getTables(f: Fragment, rv: RecyclerView){
+    fun getTables(f: Fragment, rv: RecyclerView, type: Int){
 
         val ref = databaseRef.child("locals/" + auth.uid.toString());
         var tables: ArrayList<Table> = arrayListOf<Table>();
@@ -87,12 +73,16 @@ class Utils {
                         var table = tableSnapshot.getValue<Table>();
                         table!!.id = tableSnapshot.key!!.toInt();
                         tables.add(table!!);
-                        rv.adapter = TablesViewAdapter(tables);
+                        when(type){
+                            1 -> rv.adapter = TablesViewAdapter(tables);
+                            2 -> rv.adapter = TablesRViewAdapter(tables);
+                        }
+
                     }
 
-                    Log.i("AYUDA","ANTES" + tables[0].name)
+                    /*Log.i("AYUDA","ANTES" + tables[0].name)
                     rv.adapter = TablesViewAdapter(tables);
-                    Log.i("AYUDA","DESPUES")
+                    Log.i("AYUDA","DESPUES")*/
                 }
 
             }
@@ -152,7 +142,6 @@ class Utils {
     fun editAvaileableTable(id: Int, b: Boolean){
         val ref = databaseRef.child("locals/" + auth.uid.toString()).child("tables")
             .child(id.toString());
-        Log.i("AYUDA", "FALLA PORQUE EL TableR no esta en la bbdd y si el table");
         ref.addListenerForSingleValueEvent(object: ValueEventListener{
             override fun onDataChange(snapshot: DataSnapshot) {
                 if(snapshot.exists()){
@@ -184,10 +173,7 @@ class Utils {
                         foods.add(food!!);
                         rv.adapter = FoodViewAdapter(activity,foods);
                     }
-
-
                     rv.adapter = FoodViewAdapter(activity,foods);
-
                 }
 
             }
@@ -255,33 +241,4 @@ class Utils {
         }.addOnFailureListener {
         }
     }
-
-
-
-    fun getTablesR(f: Fragment, rv: RecyclerView){
-
-        val ref = databaseRef.child("locals/" + auth.uid.toString());
-        var tables: ArrayList<TableR> = arrayListOf<TableR>();
-
-        ref.child("tables").addListenerForSingleValueEvent(object: ValueEventListener{
-            override fun onDataChange(snapshot: DataSnapshot){
-
-                if(snapshot.exists()){
-                    for (tableSnapshot in snapshot.children) {
-                        var table = tableSnapshot.getValue<TableR>();
-                        table!!.id = tableSnapshot.key!!.toInt();
-                        tables.add(table!!);
-                        rv.adapter = TablesRViewAdapter(tables);
-                    }
-                    rv.adapter = TablesRViewAdapter(tables);
-                }
-
-            }
-            override fun onCancelled(error: DatabaseError) {
-                Log.d("The read failed: " , "Error: "+ "code " + error.code + ", " + error.details );
-            }
-        });
-
-    }
-
 }

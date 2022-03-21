@@ -18,17 +18,17 @@ import cat.copernic.msabatem.waiterme.MainActivity
 import cat.copernic.msabatem.waiterme.R
 import cat.copernic.msabatem.waiterme.Utils
 
-class TablesRViewAdapter(val tables: ArrayList<TableR>): RecyclerView.Adapter<TablesRViewAdapter.TableRHolder>(){
+class TablesRViewAdapter(val tables: ArrayList<Table>): RecyclerView.Adapter<TablesRViewAdapter.TableHolder>(){
 
     lateinit var parent: ViewGroup;
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TableRHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TableHolder {
         this.parent = parent;
         val layoutInflater = LayoutInflater.from(parent.context);
-        return TableRHolder(layoutInflater.inflate(R.layout.item_tabler, parent, false));
+        return TableHolder(layoutInflater.inflate(R.layout.item_tabler, parent, false));
     }
 
-    override fun onBindViewHolder(holder: TableRHolder, position: Int) {
+    override fun onBindViewHolder(holder: TableHolder, position: Int) {
         holder.render(tables[position], position)
     }
 
@@ -37,9 +37,9 @@ class TablesRViewAdapter(val tables: ArrayList<TableR>): RecyclerView.Adapter<Ta
     }
 
 
-    class TableRHolder(val view: View): RecyclerView.ViewHolder(view){
+    class TableHolder(val view: View): RecyclerView.ViewHolder(view){
         @SuppressLint("ResourceAsColor")
-        fun render(table: TableR, pos: Int){
+        fun render(table: Table, pos: Int){
             view.findViewById<Button>(R.id.btn_Item_TableR).text = table.name;
             if(!table.available){
                 view.findViewById<Button>(R.id.btn_Item_TableR).isEnabled = false;
@@ -50,7 +50,7 @@ class TablesRViewAdapter(val tables: ArrayList<TableR>): RecyclerView.Adapter<Ta
             }
         }
 
-        private fun openDialog(view: View, table: TableR, id: Int){
+        private fun openDialog(view: View, table: Table, id: Int){
             val builder: AlertDialog.Builder = this.let {
                 AlertDialog.Builder(view.context)
             }
