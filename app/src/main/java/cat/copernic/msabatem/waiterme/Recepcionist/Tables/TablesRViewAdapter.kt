@@ -50,7 +50,7 @@ class TablesRViewAdapter(val tables: ArrayList<Table>): RecyclerView.Adapter<Tab
             }
         }
 
-        private fun openDialog(view: View, table: Table, id: Int){
+        private fun openDialog(view: View, table: Table, id_table: Int){
             val builder: AlertDialog.Builder = this.let {
                 AlertDialog.Builder(view.context)
             }
@@ -58,7 +58,7 @@ class TablesRViewAdapter(val tables: ArrayList<Table>): RecyclerView.Adapter<Tab
                 DialogInterface.OnClickListener { dialog, id ->
                     view.findViewById<Button>(R.id.btn_Item_TableR).isEnabled = false;
                     view.findViewById<Button>(R.id.btn_Item_TableR).alpha = 0.5f;
-                    Utils().editAvaileableTable(id, false);
+                    Utils().editAvaileableTable(id_table, false);
                 })?.setNegativeButton(R.string.dialog_cancel,
                 DialogInterface.OnClickListener { dialog, id ->
 

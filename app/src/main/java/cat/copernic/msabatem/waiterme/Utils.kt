@@ -10,6 +10,7 @@ import cat.copernic.msabatem.waiterme.Admin.ManageFood.FoodViewAdapter
 import cat.copernic.msabatem.waiterme.Admin.ManageTables.Table
 import cat.copernic.msabatem.waiterme.Admin.ManageTables.TablesViewAdapter
 import cat.copernic.msabatem.waiterme.Recepcionist.Tables.TablesRViewAdapter
+import cat.copernic.msabatem.waiterme.Waiter.Tables.TablesWViewAdapter
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.DataSnapshot
@@ -37,6 +38,7 @@ class Utils {
     companion object{
         const val TABLE_ADMIN = 1;
         const val TABLE_RECEPTIONIS = 2;
+        const val TABLE_WAITER = 3;
 
     }
 
@@ -76,6 +78,7 @@ class Utils {
                         when(type){
                             1 -> rv.adapter = TablesViewAdapter(tables);
                             2 -> rv.adapter = TablesRViewAdapter(tables);
+                            3 -> rv.adapter = TablesWViewAdapter(tables);
                         }
 
                     }

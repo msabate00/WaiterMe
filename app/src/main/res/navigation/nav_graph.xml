@@ -37,6 +37,9 @@
         <action
             android:id="@+id/action_rolSelectorFragment_to_adminMainFragment"
             app:destination="@id/adminMainFragment" />
+        <action
+            android:id="@+id/action_rolSelectorFragment_to_waiterMainFragment2"
+            app:destination="@id/waiterMainFragment" />
     </fragment>
     <fragment
         android:id="@+id/receptionistMainFragment"
@@ -96,4 +99,21 @@
         android:name="cat.copernic.msabatem.waiterme.Recepcionist.Tables.RecepcionistTablesFragment"
         android:label="fragment_recepcionist_tables"
         tools:layout="@layout/fragment_recepcionist_tables" />
+    <fragment
+        android:id="@+id/waiterMainFragment"
+        android:name="cat.copernic.msabatem.waiterme.Waiter.WaiterMainFragment"
+        android:label="WaiterMainFragment" >
+        <action
+            android:id="@+id/action_waiterMainFragment_to_tableWaiterDetailFragment"
+            app:destination="@id/tableWaiterDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/tableWaiterDetailFragment"
+        android:name="cat.copernic.msabatem.waiterme.Waiter.Tables.Details.TableWaiterDetailFragment"
+        android:label="fragment_table_waiter_detail"
+        tools:layout="@layout/fragment_table_waiter_detail" >
+        <argument
+            android:name="table"
+            app:argType="cat.copernic.msabatem.waiterme.Admin.ManageTables.Table" />
+    </fragment>
 </navigation>

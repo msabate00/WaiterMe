@@ -47,6 +47,9 @@ class RolSelectorFragment : Fragment() {
         binding.btRolSelectorReceptionist.setOnClickListener {
             findNavController().navigate(RolSelectorFragmentDirections.actionRolSelectorFragmentToReceptionistMainFragment());
         }
+        binding.btRolSelectorWaiter.setOnClickListener {
+            findNavController().navigate(RolSelectorFragmentDirections.actionRolSelectorFragmentToWaiterMainFragment2())
+        }
 
 
         return binding.root;

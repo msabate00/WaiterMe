@@ -19,10 +19,6 @@ class RecepcionistTablesFragment : Fragment() {
 
     private lateinit var binding: FragmentRecepcionistTablesBinding
 
-
-
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
