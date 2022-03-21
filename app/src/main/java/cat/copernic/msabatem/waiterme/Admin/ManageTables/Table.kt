@@ -8,7 +8,7 @@ import androidx.annotation.RequiresApi
 import com.google.firebase.database.IgnoreExtraProperties
 
 @IgnoreExtraProperties
-data class Table(val name: String? = null, val max_people: Int? = null, val available: Boolean = true, var id: Int? = 0,
+data class Table(val name: String? = null, val max_people: Int? = null, val available: Boolean = true, var id: Int? = null,
 ): Parcelable {
     @RequiresApi(Build.VERSION_CODES.Q)
     constructor(parcel: Parcel) : this(

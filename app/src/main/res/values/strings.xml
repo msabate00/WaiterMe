@@ -63,7 +63,10 @@
 
     <string name="orders_actives">Orders actives</string>
     <string name="send_orders">Send orders</string>
+    <string name="view_orders">View orders</string>
     <string name="new_order">New order</string>
+    <string name="table">Table</string>
+
 
     <!-- CHEF -->
 

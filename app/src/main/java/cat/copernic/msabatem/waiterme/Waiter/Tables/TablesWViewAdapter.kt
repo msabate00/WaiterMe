@@ -7,10 +7,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import androidx.fragment.app.findFragment
+import androidx.navigation.fragment.NavHostFragment
 import androidx.recyclerview.widget.RecyclerView
 import cat.copernic.msabatem.waiterme.Admin.ManageTables.Table
 import cat.copernic.msabatem.waiterme.R
 import cat.copernic.msabatem.waiterme.Utils
+import cat.copernic.msabatem.waiterme.Waiter.WaiterMainFragment
+import cat.copernic.msabatem.waiterme.Waiter.WaiterMainFragmentDirections
 
 class TablesWViewAdapter(val tables: ArrayList<Table>): RecyclerView.Adapter<TablesWViewAdapter.TableHolder>(){
 
@@ -50,25 +54,12 @@ class TablesWViewAdapter(val tables: ArrayList<Table>): RecyclerView.Adapter<Tab
         }
 
         private fun openDialog(view: View, table: Table, id_table: Int){
-            val builder: AlertDialog.Builder = this.let {
-                AlertDialog.Builder(view.context)
-            }
-            builder.setMessage(R.string.take_up_the_table)?.setPositiveButton(
-                R.string.take_it,
-                DialogInterface.OnClickListener { dialog, id ->
-                    view.findViewById<Button>(R.id.btn_Item_TableW).isEnabled = false;
-                    view.findViewById<Button>(R.id.btn_Item_TableW).alpha = 0.5f;
-                    Utils().editAvaileableTable(id_table, false);
-                })?.setNegativeButton(
-                R.string.dialog_cancel,
-                DialogInterface.OnClickListener { dialog, id ->
+            NavHostFragment.findNavController(view.findFragment()).navigate(
+                WaiterMainFragmentDirections.actionWaiterMainFragmentToTableWaiterDetailFragment(
+                    table
+                )
 
-                })
-            val dialog: AlertDialog? = builder.create()
-            builder.create();
-            builder.show();
-
-
+            );
         }
 
 
