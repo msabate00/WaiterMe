@@ -33,7 +33,7 @@ class FoodSelectorFragment : Fragment() {
         binding = FragmentFoodSelectorBinding.inflate(inflater, container, false);
 
         binding.btnFoodSelectorSend.setOnClickListener {
-            findNavController().navigate(FoodSelectorFragmentDirections.actionFoodSelectorFragmentToFoodSelectorReadyToSendFragment(args.table, FoodsWViewAdapter.food_ids_selected.toIntArray()))
+            findNavController().navigate(FoodSelectorFragmentDirections.actionFoodSelectorFragmentToFoodSelectorReadyToSendFragment(args.table, FoodsWViewAdapter.food_ids_selected.toIntArray(), args.totalOrders))
         }
 
         initRecycle();

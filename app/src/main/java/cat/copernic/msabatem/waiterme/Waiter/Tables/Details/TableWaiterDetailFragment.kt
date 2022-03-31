@@ -31,9 +31,10 @@ class TableWaiterDetailFragment : Fragment() {
 
         binding.tvWaiterTableDetailName.text = "${getString(R.string.table)}: ${args.table.name}";
 
+        binding.tvWaiterTableDetailOrderNumber.text = args.totalOrders.toString();
 
         binding.btWaiterTableDetailNewOrder.setOnClickListener {
-            findNavController().navigate(TableWaiterDetailFragmentDirections.actionTableWaiterDetailFragmentToFoodSelectorFragment(args.table))
+            findNavController().navigate(TableWaiterDetailFragmentDirections.actionTableWaiterDetailFragmentToFoodSelectorFragment(args.table, args.totalOrders))
         }
 
 

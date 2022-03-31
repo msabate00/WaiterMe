@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.GridLayoutManager
 import cat.copernic.msabatem.waiterme.MainActivity
@@ -32,6 +33,7 @@ class FoodSelector_ReadyToSendFragment : Fragment() {
 
         binding.btnWaiterFoodSelectorReadyToSendFinish.setOnClickListener {
             Utils().addOrder(args.table.id!!, args.foodIds.toList(), binding.etWaiterFoodSelectorReadyToSendDetails.text.toString())
+            findNavController().navigate(FoodSelector_ReadyToSendFragmentDirections.actionFoodSelectorReadyToSendFragmentToTableWaiterDetailFragment(args.table, args.totalOrders + 1))
         }
         return binding.root;
     }

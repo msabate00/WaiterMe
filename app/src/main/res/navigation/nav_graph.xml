@@ -105,7 +105,8 @@
         android:label="WaiterMainFragment" >
         <action
             android:id="@+id/action_waiterMainFragment_to_tableWaiterDetailFragment"
-            app:destination="@id/tableWaiterDetailFragment" />
+            app:destination="@id/tableWaiterDetailFragment"
+            app:popUpTo="@id/waiterMainFragment" />
     </fragment>
     <fragment
         android:id="@+id/tableWaiterDetailFragment"
@@ -118,6 +119,10 @@
         <action
             android:id="@+id/action_tableWaiterDetailFragment_to_foodSelectorFragment"
             app:destination="@id/foodSelectorFragment" />
+        <argument
+            android:name="total_orders"
+            app:argType="integer"
+            android:defaultValue="0" />
     </fragment>
     <fragment
         android:id="@+id/foodSelectorFragment"
@@ -129,6 +134,10 @@
         <action
             android:id="@+id/action_foodSelectorFragment_to_foodSelector_ReadyToSendFragment"
             app:destination="@id/foodSelector_ReadyToSendFragment" />
+        <argument
+            android:name="total_orders"
+            app:argType="integer"
+            android:defaultValue="0" />
     </fragment>
     <fragment
         android:id="@+id/foodSelector_ReadyToSendFragment"
@@ -137,12 +146,17 @@
         tools:layout="@layout/fragment_food_selector__ready_to_send" >
         <action
             android:id="@+id/action_foodSelector_ReadyToSendFragment_to_tableWaiterDetailFragment"
-            app:destination="@id/tableWaiterDetailFragment" />
+            app:destination="@id/tableWaiterDetailFragment"
+            app:popUpTo="@id/waiterMainFragment" />
         <argument
             android:name="table"
             app:argType="cat.copernic.msabatem.waiterme.Admin.ManageTables.Table" />
         <argument
             android:name="food_ids"
             app:argType="integer[]" />
+        <argument
+            android:name="total_orders"
+            app:argType="integer"
+            android:defaultValue="0" />
     </fragment>
 </navigation>

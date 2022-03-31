@@ -188,7 +188,7 @@ class Utils {
                         foods.add(food!!);
                         when (type) {
                             FOOD_ADMIN -> rv.adapter = FoodViewAdapter(activity, foods);
-                            FOOD_WAITER -> rv.adapter = FoodsWViewAdapter(foods);
+                            FOOD_WAITER -> rv.adapter = FoodsWViewAdapter(foods, f);
                         }
 
                     }
@@ -273,7 +273,7 @@ class Utils {
                     table_id = table_id,
                     foods_id = foods_id,
                     details = details,
-                    final_price = getAllPriceFromFood2(foods_id)
+                    final_price = getAllPriceFromFood(foods_id)
                 );
                 if (snapshot.exists()) {
                     var count = 0;
@@ -283,10 +283,12 @@ class Utils {
                     count++;
                     orderItem.id = count;
                     ref.child("orders").child(count.toString()).setValue(orderItem);
+                    setAllPriceFromFood(foods_id, count)
 
                 } else {
                     orderItem.id = 1;
                     ref.child("orders").child("1").setValue(orderItem);
+                    setAllPriceFromFood(foods_id, 1)
                 }
             }
 
@@ -319,32 +321,29 @@ class Utils {
         return price;
     }
 
-    fun getAllPriceFromFood2(foods_id: List<Int>): Float {
+    fun setAllPriceFromFood(foods_id: List<Int>, order_id: Int) {
 
-        var price = 0f;
         val ref = databaseRef.child("locals/" + auth.uid.toString());
-        var foods: ArrayList<Food> = arrayListOf<Food>();
+        var price = 0f;
 
-        ref.child("foods").addListenerForSingleValueEvent(object : ValueEventListener {
+        val dataSnapshotTask: Task<DataSnapshot> = ref.child("foods").get();
 
-            override fun onDataChange(snapshot: DataSnapshot) {
-
-                if (snapshot.exists()) {
-                    for (foodSnapshot in snapshot.children) {
-                        var food = foodSnapshot.getValue<Food>();
-                        food!!.id = foodSnapshot.key!!.toInt();
-                        foods.add(food!!);
+        dataSnapshotTask.addOnCompleteListener {
+            Log.i("AYUDA", "HEY TERMINO")
+            if (it.result.exists()) {
+                for (foodSnapshot in it.result.children) {
+                    var food = foodSnapshot.getValue<Food>();
+                    food!!.id = foodSnapshot.key!!.toInt();
+                    if (foods_id.contains(food.id)) {
                         price += food.price!!;
                     }
                 }
-            }
 
-            override fun onCancelled(error: DatabaseError) {
-                Log.d("The read failed: ", "Error: " + "code " + error.code + ", " + error.details);
+                ref.child("orders").child(order_id.toString()).child("final_price").setValue(price)
+
+                //rv.adapter = FoodViewAdapter(activity,foods);
             }
-        }).let {
-            return price;
-        };
+        }
 
 
     }
