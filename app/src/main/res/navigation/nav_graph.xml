@@ -126,5 +126,23 @@
         <argument
             android:name="table"
             app:argType="cat.copernic.msabatem.waiterme.Admin.ManageTables.Table" />
+        <action
+            android:id="@+id/action_foodSelectorFragment_to_foodSelector_ReadyToSendFragment"
+            app:destination="@id/foodSelector_ReadyToSendFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/foodSelector_ReadyToSendFragment"
+        android:name="cat.copernic.msabatem.waiterme.Waiter.Tables.Details.Orders.FoodSelector_ReadyToSendFragment"
+        android:label="fragment_food_selector__ready_to_send"
+        tools:layout="@layout/fragment_food_selector__ready_to_send" >
+        <action
+            android:id="@+id/action_foodSelector_ReadyToSendFragment_to_tableWaiterDetailFragment"
+            app:destination="@id/tableWaiterDetailFragment" />
+        <argument
+            android:name="table"
+            app:argType="cat.copernic.msabatem.waiterme.Admin.ManageTables.Table" />
+        <argument
+            android:name="food_ids"
+            app:argType="integer[]" />
     </fragment>
 </navigation>

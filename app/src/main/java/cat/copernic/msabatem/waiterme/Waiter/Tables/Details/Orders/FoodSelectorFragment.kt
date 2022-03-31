@@ -5,6 +5,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.GridLayoutManager
 import cat.copernic.msabatem.waiterme.MainActivity
 import cat.copernic.msabatem.waiterme.R
@@ -16,6 +18,7 @@ import cat.copernic.msabatem.waiterme.databinding.FragmentWaiterMainBinding
 class FoodSelectorFragment : Fragment() {
 
     private lateinit var binding: FragmentFoodSelectorBinding
+    val args: FoodSelectorFragmentArgs by navArgs()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,6 +31,10 @@ class FoodSelectorFragment : Fragment() {
         // Inflate the layout for this fragment
 
         binding = FragmentFoodSelectorBinding.inflate(inflater, container, false);
+
+        binding.btnFoodSelectorSend.setOnClickListener {
+            findNavController().navigate(FoodSelectorFragmentDirections.actionFoodSelectorFragmentToFoodSelectorReadyToSendFragment(args.table, FoodsWViewAdapter.food_ids_selected.toIntArray()))
+        }
 
         initRecycle();
 

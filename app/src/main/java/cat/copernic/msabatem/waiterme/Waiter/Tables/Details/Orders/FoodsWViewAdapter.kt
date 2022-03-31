@@ -23,7 +23,7 @@ class FoodsWViewAdapter(val foods: ArrayList<Food>): RecyclerView.Adapter<FoodsW
     lateinit var parent: ViewGroup;
 
     companion object{
-        var food_ids_selected = ArrayList<Food>();
+        var food_ids_selected = ArrayList<Int>();
     }
 
 
@@ -59,20 +59,12 @@ class FoodsWViewAdapter(val foods: ArrayList<Food>): RecyclerView.Adapter<FoodsW
         }
 
         private fun openDialog(view: View, food: Food){
-            /*if((view.findViewById<ConstraintLayout>(R.id.cl_foodw_item).background as ColorDrawable).color == R.color.orange){
-                //Significa que ahora lo han seleccionado
-                view.findViewById<ConstraintLayout>(R.id.cl_foodw_item).setBackgroundColor(view.resources.getColor(R.color.green));
-
-            }else{
-                //Significa que ya estaba seleccionado
-                view.findViewById<ConstraintLayout>(R.id.cl_foodw_item).setBackgroundColor(view.resources.getColor(R.color.red));
-            }*/
-            if(food_ids_selected.size > 0 && food_ids_selected.contains(food)){
+            if(food_ids_selected.size > 0 && food_ids_selected.contains(food.id)){
                 view.findViewById<ConstraintLayout>(R.id.cl_foodw_item).setBackgroundColor(view.resources.getColor(R.color.orange));
-                food_ids_selected.remove(food);
+                food_ids_selected.remove(food.id);
             }else{
                 view.findViewById<ConstraintLayout>(R.id.cl_foodw_item).setBackgroundColor(view.resources.getColor(R.color.green));
-                food_ids_selected.add(food);
+                food_ids_selected.add(food.id!!);
             }
 
         }
