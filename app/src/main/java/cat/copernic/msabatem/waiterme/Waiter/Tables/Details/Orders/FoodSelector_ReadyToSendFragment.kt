@@ -30,6 +30,9 @@ class FoodSelector_ReadyToSendFragment : Fragment() {
 
         binding = FragmentFoodSelectorReadyToSendBinding.inflate(inflater, container, false);
 
+        binding.btnWaiterFoodSelectorReadyToSendFinish.setOnClickListener {
+            Utils().addOrder(args.table.id!!, args.foodIds.toList(), binding.etWaiterFoodSelectorReadyToSendDetails.text.toString())
+        }
         return binding.root;
     }
 
