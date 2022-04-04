@@ -43,6 +43,7 @@ class Orders_ViewOrderFragment  : Fragment() {
         binding = FragmentOrdersViewOrderBinding.inflate(inflater, container, false);
 
 
+
         return binding.root;
     }
 

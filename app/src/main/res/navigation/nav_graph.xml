@@ -119,6 +119,9 @@
         <action
             android:id="@+id/action_tableWaiterDetailFragment_to_foodSelectorFragment"
             app:destination="@id/foodSelectorFragment" />
+        <action
+            android:id="@+id/action_tableWaiterDetailFragment_to_orders_ViewOrderFragment"
+            app:destination="@id/orders_ViewOrderFragment" />
     </fragment>
     <fragment
         android:id="@+id/foodSelectorFragment"
@@ -146,5 +149,13 @@
         <argument
             android:name="food_ids"
             app:argType="integer[]" />
+    </fragment>
+    <fragment
+        android:id="@+id/orders_ViewOrderFragment"
+        android:name="cat.copernic.msabatem.waiterme.Waiter.Tables.Details.Orders.ViewOrders.Orders_ViewOrderFragment"
+        android:label="Orders_ViewOrderFragment" >
+        <argument
+            android:name="table"
+            app:argType="cat.copernic.msabatem.waiterme.Admin.ManageTables.Table" />
     </fragment>
 </navigation>

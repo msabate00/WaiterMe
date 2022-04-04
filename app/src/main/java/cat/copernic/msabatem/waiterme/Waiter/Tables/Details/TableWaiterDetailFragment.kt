@@ -39,7 +39,7 @@ class TableWaiterDetailFragment : Fragment() {
         }
 
         binding.btWaiterTableDetailViewOrders.setOnClickListener {
-            Utils().getOrdersCountByTableId(args.table.id ?: 0, binding.tvWaiterTableDetailOrderNumber);
+            findNavController().navigate(TableWaiterDetailFragmentDirections.actionTableWaiterDetailFragmentToOrdersViewOrderFragment(args.table))
         }
 
 
