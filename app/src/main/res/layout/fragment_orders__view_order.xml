@@ -39,41 +39,29 @@
             app:layout_constraintTop_toTopOf="@+id/tv_Waiter_Orders_View_Title"
             app:layout_constraintVertical_bias="0.571" />
 
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_Orders_View_foods"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="28dp"
+            android:layout_marginBottom="28dp"
+            app:layout_constraintBottom_toTopOf="@+id/btn_Orders_View_send"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_Waiter_Orders_View_Title" />
 
         <Button
-            android:id="@+id/btn_Waiter_Orders_View_Finish"
+            android:id="@+id/btn_Orders_View_send"
             style="@style/WaiterButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="24dp"
-            android:text="@string/finish"
+            android:text="@string/go_back"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent" />
-
-        <EditText
-            android:id="@+id/et_Waiter_Orders_View_details"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:gravity="start|top"
-            android:inputType="textMultiLine"
-            android:minHeight="100dp"
-            app:layout_constraintBottom_toTopOf="@+id/btn_Waiter_Orders_View_Finish"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_Waiter_Orders_View_Title"
-            app:layout_constraintVertical_bias="0.31" />
-
-        <TextView
-            android:id="@+id/tv_Waiter_Orders_View_labelDetails"
-            style="@style/SubHeaderText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/some_modification"
-            app:layout_constraintBottom_toTopOf="@+id/et_Waiter_Orders_View_details"
-            app:layout_constraintStart_toStartOf="@+id/et_Waiter_Orders_View_details" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

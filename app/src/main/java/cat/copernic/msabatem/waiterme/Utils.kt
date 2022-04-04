@@ -13,6 +13,7 @@ import cat.copernic.msabatem.waiterme.Admin.ManageTables.TablesViewAdapter
 import cat.copernic.msabatem.waiterme.Recepcionist.Tables.TablesRViewAdapter
 import cat.copernic.msabatem.waiterme.Waiter.Tables.Details.Orders.FoodsWViewAdapter
 import cat.copernic.msabatem.waiterme.Waiter.Tables.Details.Orders.OrderItem
+import cat.copernic.msabatem.waiterme.Waiter.Tables.Details.Orders.ViewOrders.OrderViewAdapter
 import cat.copernic.msabatem.waiterme.Waiter.Tables.TablesWViewAdapter
 import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.FirebaseAuth
@@ -39,6 +40,8 @@ class Utils {
     private val auth = Firebase.auth;
     private val databaseRef = database.reference;
     private val storageRef = storage.getReference().child("/locals/${auth.uid}/images/")
+
+    private var orders_ids = ArrayList<Int>();
 
     companion object {
         const val TABLE_ADMIN = 1;
@@ -348,7 +351,7 @@ class Utils {
         }
     }
 
-    fun getOrdersCountByTableId(table_id: Int, tv: TextView){
+    fun getOrdersCountByTableId(table_id: Int, tv: TextView?){
         val ref = databaseRef.child("locals/" + auth.uid.toString());
         ref.child("orders").addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
@@ -357,14 +360,13 @@ class Utils {
                     var count = 0;
                     for (snapshotData in snapshot.children) {
                        val hashed = (snapshotData.value as HashMap<*, *>);
-                        Log.i("AYUDA", hashed["table_id"].toString() + " ID ES: $table_id");
                         if(!((hashed["finished"] as Boolean?) == true) && hashed["table_id"] as Long == table_id.toLong()){
                             count++;
                         }
                     }
-                    tv.text = count.toString();
+                    tv?.text = count.toString();
                 } else {
-                    tv.text = "0";
+                    tv?.text = "0";
                 }
             }
 
@@ -372,6 +374,50 @@ class Utils {
 
             }
         })
+    }
+
+    fun getOrders(rv: RecyclerView, table_id: Int,fragment: Fragment) {
+
+        val ref = databaseRef.child("locals/" + auth.uid.toString());
+        var orders: ArrayList<OrderItem> = arrayListOf<OrderItem>();
+
+        ref.child("orders").addListenerForSingleValueEvent(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+
+                if (snapshot.exists()) {
+                    for (snapshotData in snapshot.children) {
+                        var order = snapshotData.getValue<OrderItem>()
+
+                        if(order!!.finished == false && order.table_id == table_id){
+                            orders.add(order);
+                        }
+                    }
+                    rv.adapter = OrderViewAdapter(orders,fragment);
+                }
+
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                Log.d("The read failed: ", "Error: " + "code " + error.code + ", " + error.details);
+            }
+        });
+
+    }
+    fun getFoodById(id: Int,tv: TextView){
+        databaseRef.child("locals/" + auth.uid.toString()).child("foods")
+            .child(id.toString()).addListenerForSingleValueEvent(object : ValueEventListener {
+
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    var food = snapshot.getValue<Food>()
+                    tv.text = "${tv.text} \n ${food!!.name}";
+
+                }
+
+                override fun onCancelled(error: DatabaseError) {
+                    Log.d("The read failed: ", "Error: " + "code " + error.code + ", " + error.details);
+                }
+
+            })
     }
 
 }

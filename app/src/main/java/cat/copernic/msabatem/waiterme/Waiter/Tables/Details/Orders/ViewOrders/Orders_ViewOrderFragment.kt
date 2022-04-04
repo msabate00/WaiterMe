@@ -7,6 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
+import cat.copernic.msabatem.waiterme.MainActivity
 import cat.copernic.msabatem.waiterme.R
 import cat.copernic.msabatem.waiterme.Utils
 import cat.copernic.msabatem.waiterme.Waiter.Tables.Details.Orders.FoodSelector_ReadyToSendFragmentArgs
@@ -28,7 +31,7 @@ private const val ARG_PARAM2 = "param2"
 class Orders_ViewOrderFragment  : Fragment() {
 
     private lateinit var binding: FragmentOrdersViewOrderBinding
-    val args: FoodSelector_ReadyToSendFragmentArgs by navArgs()
+    val args: Orders_ViewOrderFragmentArgs by navArgs()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,9 +45,15 @@ class Orders_ViewOrderFragment  : Fragment() {
 
         binding = FragmentOrdersViewOrderBinding.inflate(inflater, container, false);
 
-
+        initRecycle();
 
         return binding.root;
+    }
+
+    private fun initRecycle(){
+        binding.rvOrdersViewFoods.layoutManager = LinearLayoutManager(context);
+        //Utils().getFood(requireParentFragment(), binding.rvFoodSelectorFoods, activity as MainActivity, Utils.FOOD_WAITER)
+        Utils().getOrders(binding.rvOrdersViewFoods, args.table.id ?: 0, this)
     }
 
 
