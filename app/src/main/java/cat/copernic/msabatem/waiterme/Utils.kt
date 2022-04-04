@@ -3,6 +3,7 @@ package cat.copernic.msabatem.waiterme
 import android.graphics.BitmapFactory
 import android.util.Log
 import android.widget.ImageView
+import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import cat.copernic.msabatem.waiterme.Admin.ManageFood.Food
@@ -24,6 +25,7 @@ import com.google.firebase.database.ktx.getValue
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
+import org.w3c.dom.Text
 import java.math.BigInteger
 import java.security.MessageDigest
 import kotlin.math.max
@@ -344,8 +346,32 @@ class Utils {
                 //rv.adapter = FoodViewAdapter(activity,foods);
             }
         }
+    }
 
+    fun getOrdersCountByTableId(table_id: Int, tv: TextView){
+        val ref = databaseRef.child("locals/" + auth.uid.toString());
+        ref.child("orders").addListenerForSingleValueEvent(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
 
+                if (snapshot.exists()) {
+                    var count = 0;
+                    for (snapshotData in snapshot.children) {
+                       val hashed = (snapshotData.value as HashMap<*, *>);
+                        Log.i("AYUDA", hashed["table_id"].toString() + " ID ES: $table_id");
+                        if(!((hashed["finished"] as Boolean?) == true) && hashed["table_id"] as Long == table_id.toLong()){
+                            count++;
+                        }
+                    }
+                    tv.text = count.toString();
+                } else {
+                    tv.text = "0";
+                }
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+
+            }
+        })
     }
 
 }

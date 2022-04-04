@@ -33,7 +33,8 @@ class FoodSelector_ReadyToSendFragment : Fragment() {
 
         binding.btnWaiterFoodSelectorReadyToSendFinish.setOnClickListener {
             Utils().addOrder(args.table.id!!, args.foodIds.toList(), binding.etWaiterFoodSelectorReadyToSendDetails.text.toString())
-            findNavController().navigate(FoodSelector_ReadyToSendFragmentDirections.actionFoodSelectorReadyToSendFragmentToTableWaiterDetailFragment(args.table, args.totalOrders + 1))
+            FoodsWViewAdapter.clear_Food_Ids();
+            findNavController().navigate(FoodSelector_ReadyToSendFragmentDirections.actionFoodSelectorReadyToSendFragmentToTableWaiterDetailFragment(args.table))
         }
         return binding.root;
     }

@@ -11,11 +11,11 @@
         android:id="@+id/frameLayout3"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".Waiter.Tables.Details.Orders.FoodSelector_ReadyToSendFragment">
+        tools:context=".Waiter.Tables.Details.Orders.ViewOrders.Orders_ViewOrderFragment">
 
 
         <TextView
-            android:id="@+id/tv_Waiter_FoodSelector_ReadyToSend_Title"
+            android:id="@+id/tv_Waiter_Orders_View_Title"
             style="@style/HeaderText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -27,21 +27,21 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <Button
-            android:id="@+id/bt_Waiter_FoodSelector_ReadyToSend_Cancel"
+            android:id="@+id/bt_Waiter_Orders_View_Cancel"
             android:layout_width="40dp"
             android:layout_height="52dp"
             android:layout_marginEnd="16dp"
             android:backgroundTint="@color/cardview_shadow_end_color"
             android:drawableTop="@android:drawable/ic_menu_revert"
             app:iconPadding="0dp"
-            app:layout_constraintBottom_toBottomOf="@+id/tv_Waiter_FoodSelector_ReadyToSend_Title"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_Waiter_Orders_View_Title"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/tv_Waiter_FoodSelector_ReadyToSend_Title"
+            app:layout_constraintTop_toTopOf="@+id/tv_Waiter_Orders_View_Title"
             app:layout_constraintVertical_bias="0.571" />
 
 
         <Button
-            android:id="@+id/btn_Waiter_FoodSelector_ReadyToSend_Finish"
+            android:id="@+id/btn_Waiter_Orders_View_Finish"
             style="@style/WaiterButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -53,27 +53,27 @@
             app:layout_constraintStart_toStartOf="parent" />
 
         <EditText
-            android:id="@+id/et_Waiter_FoodSelector_ReadyToSend_details"
+            android:id="@+id/et_Waiter_Orders_View_details"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="10"
             android:gravity="start|top"
             android:inputType="textMultiLine"
             android:minHeight="100dp"
-            app:layout_constraintBottom_toTopOf="@+id/btn_Waiter_FoodSelector_ReadyToSend_Finish"
+            app:layout_constraintBottom_toTopOf="@+id/btn_Waiter_Orders_View_Finish"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_Waiter_FoodSelector_ReadyToSend_Title"
+            app:layout_constraintTop_toBottomOf="@+id/tv_Waiter_Orders_View_Title"
             app:layout_constraintVertical_bias="0.31" />
 
         <TextView
-            android:id="@+id/tv_Waiter_FoodSelector_ReadyToSend_labelDetails"
+            android:id="@+id/tv_Waiter_Orders_View_labelDetails"
             style="@style/SubHeaderText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/some_modification"
-            app:layout_constraintBottom_toTopOf="@+id/et_Waiter_FoodSelector_ReadyToSend_details"
-            app:layout_constraintStart_toStartOf="@+id/et_Waiter_FoodSelector_ReadyToSend_details" />
+            app:layout_constraintBottom_toTopOf="@+id/et_Waiter_Orders_View_details"
+            app:layout_constraintStart_toStartOf="@+id/et_Waiter_Orders_View_details" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

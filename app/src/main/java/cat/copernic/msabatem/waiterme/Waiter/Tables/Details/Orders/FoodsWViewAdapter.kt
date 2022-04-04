@@ -26,6 +26,12 @@ class FoodsWViewAdapter(val foods: ArrayList<Food>, val fragment: Fragment): Rec
 
     companion object{
         var food_ids_selected = ArrayList<Int>();
+
+
+        fun clear_Food_Ids(){
+            food_ids_selected.clear();
+        }
+
     }
 
 
