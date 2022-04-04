@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Android_Studio_Proyectos/WaiterMe/app/src/main/res/drawable/customborder.xml" value="0.2645" />
         <entry key="..\:/Android_Studio_Proyectos/WaiterMe/app/src/main/res/layout/activity_main.xml" value="0.13333333333333333" />
         <entry key="..\:/Android_Studio_Proyectos/WaiterMe/app/src/main/res/layout/fragment_add_food.xml" value="0.264" />
         <entry key="..\:/Android_Studio_Proyectos/WaiterMe/app/src/main/res/layout/fragment_add_order.xml" value="0.259375" />

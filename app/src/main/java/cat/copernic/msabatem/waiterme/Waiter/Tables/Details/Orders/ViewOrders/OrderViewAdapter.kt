@@ -41,7 +41,7 @@ class OrderViewAdapter(val orders: ArrayList<OrderItem>, val fragment: Fragment)
         fun render(order: OrderItem, pos: Int){
 
             view.findViewById<TextView>(R.id.tv_Item_Order_NumberAsigned).text = pos.toString();
-
+            view.findViewById<TextView>(R.id.tv_Item_Order_ListFood).text = "";
             for(id: Int in order.foods_id!!){
                 Utils().getFoodById(id, view.findViewById(R.id.tv_Item_Order_ListFood))
             }
