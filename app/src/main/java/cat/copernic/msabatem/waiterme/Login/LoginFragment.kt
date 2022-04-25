@@ -72,7 +72,7 @@ class LoginFragment : Fragment() {
 
         if(email != "" && password != ""){
 
-            Log.i("AYUDA", "$email __ $password");
+
             auth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this.requireActivity()) { task ->
                     if (task.isSuccessful) {

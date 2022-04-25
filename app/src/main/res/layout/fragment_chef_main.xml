@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools">
+
+<data>
+
+</data>
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:id="@+id/frameLayout3"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Chef.ChefMainFragment">
+
+
+    <TextView
+        android:id="@+id/tv_Chef_Orders_View_Title"
+        style="@style/HeaderText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:text="@string/chef"
+        android:textAllCaps="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/bt_Chef_Orders_View_Cancel"
+        android:layout_width="40dp"
+        android:layout_height="52dp"
+        android:layout_marginEnd="16dp"
+        android:backgroundTint="@color/cardview_shadow_end_color"
+        android:drawableTop="@android:drawable/ic_menu_revert"
+        app:iconPadding="0dp"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_Chef_Orders_View_Title"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tv_Chef_Orders_View_Title"
+        app:layout_constraintVertical_bias="0.571" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_Chef_Orders_View_foods"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginBottom="28dp"
+        app:layout_constraintBottom_toTopOf="@+id/btn_Chef_Orders_View_back"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_Chef_Orders_View_Title" />
+
+    <Button
+        android:id="@+id/btn_Chef_Orders_View_back"
+        style="@style/WaiterButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:text="@string/go_back"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

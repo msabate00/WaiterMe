@@ -83,8 +83,7 @@ class RegisterFragment : Fragment() {
             .addOnCompleteListener(requireActivity()) { task ->
                 if (task.isSuccessful) {
                     // Sign in success, update UI with the signed-in user's information
-                    Log.d("AYUDA", "createUserWithEmail:success")
-                    val user = auth.currentUser
+                   val user = auth.currentUser
                     updateUI(user)
 
 
@@ -94,7 +93,6 @@ class RegisterFragment : Fragment() {
                     findNavController().navigate(RegisterFragmentDirections.actionRegisterFragmentToRolSelectorFragment())
                 } else {
                     // If sign in fails, display a message to the user.
-                    Log.w("AYUDA", "createUserWithEmail:failure", task.exception)
                     Toast.makeText(context, getString(R.string.already_user),
                         Toast.LENGTH_SHORT).show()
                     updateUI(null)

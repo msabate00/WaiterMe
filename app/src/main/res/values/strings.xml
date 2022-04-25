@@ -74,6 +74,8 @@
 
 
     <!-- CHEF -->
+    <string name="take">Take</string>
+    <string name="done">Done</string>
 
 
     <!-- ADMIN PANEL -->

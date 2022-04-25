@@ -47,6 +47,10 @@ class Orders_ViewOrderFragment  : Fragment() {
 
         initRecycle();
 
+        binding.btnOrdersViewBack.setOnClickListener {
+            findNavController().popBackStack();
+        }
+
         return binding.root;
     }
 

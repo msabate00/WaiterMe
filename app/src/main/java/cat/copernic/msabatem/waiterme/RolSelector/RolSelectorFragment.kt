@@ -51,6 +51,10 @@ class RolSelectorFragment : Fragment() {
             findNavController().navigate(RolSelectorFragmentDirections.actionRolSelectorFragmentToWaiterMainFragment2())
         }
 
+        binding.btRolSelectorChef.setOnClickListener {
+            findNavController().navigate(RolSelectorFragmentDirections.actionRolSelectorFragmentToChefMainFragment())
+        }
+
 
         return binding.root;
         //return inflater.inflate(R.layout.fragment_login, container, false)
@@ -70,7 +74,6 @@ class RolSelectorFragment : Fragment() {
         builder.setPositiveButton(getString(R.string.dialog_ok)) {
                 dialog, which ->
             actualPin = input.text.toString() ;
-            Log.i("AYUDA", "MD5 ES: ${Utils().md5(actualPin)}")
             val ref = Utils().getDatabase().getReference("locals/" + Utils().getAuth().uid + "/super_pin")
             ref.get().addOnSuccessListener {
                 if(it.value.toString() == Utils().md5(actualPin)) {

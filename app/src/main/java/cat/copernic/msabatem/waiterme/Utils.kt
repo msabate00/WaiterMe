@@ -10,6 +10,7 @@ import cat.copernic.msabatem.waiterme.Admin.ManageFood.Food
 import cat.copernic.msabatem.waiterme.Admin.ManageFood.FoodViewAdapter
 import cat.copernic.msabatem.waiterme.Admin.ManageTables.Table
 import cat.copernic.msabatem.waiterme.Admin.ManageTables.TablesViewAdapter
+import cat.copernic.msabatem.waiterme.Chef.ChefFoodViewAdapter
 import cat.copernic.msabatem.waiterme.Recepcionist.Tables.TablesRViewAdapter
 import cat.copernic.msabatem.waiterme.Waiter.Tables.Details.Orders.FoodsWViewAdapter
 import cat.copernic.msabatem.waiterme.Waiter.Tables.Details.Orders.OrderItem
@@ -109,6 +110,7 @@ class Utils {
         });
 
     }
+
 
     fun addTable(name: String, max_people: Int) {
         val ref = databaseRef.child("locals/" + auth.uid.toString());
@@ -263,6 +265,7 @@ class Utils {
         val picBytes = pic.getBytes(5000000)
 
         picBytes.addOnSuccessListener {
+
             var bitmap = BitmapFactory.decodeByteArray(it, 0, it.size)
 
             iv.setImageBitmap(bitmap)
@@ -311,7 +314,6 @@ class Utils {
         val dataSnapshotTask: Task<DataSnapshot> = ref.child("foods").get();
 
         dataSnapshotTask.addOnCompleteListener {
-            Log.i("AYUDA", "HEY TERMINO")
             if (it.result.exists()) {
                 for (foodSnapshot in it.result.children) {
                     var food = foodSnapshot.getValue<Food>();
@@ -334,7 +336,6 @@ class Utils {
         val dataSnapshotTask: Task<DataSnapshot> = ref.child("foods").get();
 
         dataSnapshotTask.addOnCompleteListener {
-            Log.i("AYUDA", "HEY TERMINO")
             if (it.result.exists()) {
                 for (foodSnapshot in it.result.children) {
                     var food = foodSnapshot.getValue<Food>();
@@ -351,7 +352,7 @@ class Utils {
         }
     }
 
-    fun getOrdersCountByTableId(table_id: Int, tv: TextView?){
+    fun getOrdersCountByTableId(table_id: Int, tv: TextView?) {
         val ref = databaseRef.child("locals/" + auth.uid.toString());
         ref.child("orders").addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
@@ -359,8 +360,8 @@ class Utils {
                 if (snapshot.exists()) {
                     var count = 0;
                     for (snapshotData in snapshot.children) {
-                       val hashed = (snapshotData.value as HashMap<*, *>);
-                        if(!((hashed["finished"] as Boolean?) == true) && hashed["table_id"] as Long == table_id.toLong()){
+                        val hashed = (snapshotData.value as HashMap<*, *>);
+                        if (!((hashed["finished"] as Boolean?) == true) && hashed["table_id"] as Long == table_id.toLong()) {
                             count++;
                         }
                     }
@@ -376,7 +377,7 @@ class Utils {
         })
     }
 
-    fun getOrders(rv: RecyclerView, table_id: Int,fragment: Fragment) {
+    fun getOrders(rv: RecyclerView, table_id: Int, fragment: Fragment) {
 
         val ref = databaseRef.child("locals/" + auth.uid.toString());
         var orders: ArrayList<OrderItem> = arrayListOf<OrderItem>();
@@ -388,11 +389,11 @@ class Utils {
                     for (snapshotData in snapshot.children) {
                         var order = snapshotData.getValue<OrderItem>()
 
-                        if(order!!.finished == false && order.table_id == table_id){
+                        if (order!!.finished == false && order.table_id == table_id) {
                             orders.add(order);
                         }
                     }
-                    rv.adapter = OrderViewAdapter(orders,fragment);
+                    rv.adapter = OrderViewAdapter(orders, fragment);
                 }
 
             }
@@ -403,7 +404,8 @@ class Utils {
         });
 
     }
-    fun getFoodById(id: Int,tv: TextView){
+
+    fun getFoodById(id: Int, tv: TextView) {
         databaseRef.child("locals/" + auth.uid.toString()).child("foods")
             .child(id.toString()).addListenerForSingleValueEvent(object : ValueEventListener {
 
@@ -414,10 +416,94 @@ class Utils {
                 }
 
                 override fun onCancelled(error: DatabaseError) {
-                    Log.d("The read failed: ", "Error: " + "code " + error.code + ", " + error.details);
+                    Log.d(
+                        "The read failed: ",
+                        "Error: " + "code " + error.code + ", " + error.details
+                    );
                 }
 
             })
+    }
+
+    /*
+    fun getOnlyFoodById(id: Int) {
+        databaseRef.child("locals/" + auth.uid.toString()).child("foods")
+            .child(id.toString()).addListenerForSingleValueEvent(object : ValueEventListener {
+
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    var food = snapshot.getValue<Food>()
+                }
+
+                override fun onCancelled(error: DatabaseError) {
+                    Log.d(
+                        "The read failed: ",
+                        "Error: " + "code " + error.code + ", " + error.details
+                    );
+                }
+
+            })
+    }*/
+
+    fun deleteOrderById(id: Int) {
+        databaseRef.child("locals/" + auth.uid.toString()).child("orders")
+            .child(id.toString()).removeValue();
+    }
+
+
+    fun getAllFoodsAllOrders(rv: RecyclerView, fragment: Fragment) {
+        val ref = databaseRef.child("locals/" + auth.uid.toString());
+        var foods: ArrayList<Food> = arrayListOf<Food>();
+
+
+        ref.child("orders").addListenerForSingleValueEvent(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+
+                if (snapshot.exists()) {
+                    for (snapshotData in snapshot.children) {
+
+
+                        var order = snapshotData.getValue<OrderItem>()
+
+                        if (order!!.finished == false) {
+                            for (food_id in order.foods_id!!) {
+
+
+                                databaseRef.child("locals/" + auth.uid.toString()).child("foods")
+                                    .child(food_id.toString())
+                                    .addListenerForSingleValueEvent(object : ValueEventListener {
+
+                                        override fun onDataChange(snapshot2: DataSnapshot) {
+                                            val food = snapshot2.getValue<Food>()!!;
+                                            food.id = food_id;
+                                            foods.add(food);
+                                            rv.adapter = ChefFoodViewAdapter(foods, fragment);
+                                        }
+
+                                        override fun onCancelled(error2: DatabaseError) {
+                                            Log.d(
+                                                "The read failed: ",
+                                                "Error: " + "code " + error2.code + ", " + error2.details
+                                            );
+                                        }
+
+                                    })
+
+
+
+                            }
+
+
+                        }
+                    }
+
+                }
+
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                Log.d("The read failed: ", "Error: " + "code " + error.code + ", " + error.details);
+            }
+        });
     }
 
 }

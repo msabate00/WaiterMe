@@ -40,6 +40,9 @@
         <action
             android:id="@+id/action_rolSelectorFragment_to_waiterMainFragment2"
             app:destination="@id/waiterMainFragment" />
+        <action
+            android:id="@+id/action_rolSelectorFragment_to_chefMainFragment"
+            app:destination="@id/chefMainFragment" />
     </fragment>
     <fragment
         android:id="@+id/receptionistMainFragment"
@@ -158,4 +161,8 @@
             android:name="table"
             app:argType="cat.copernic.msabatem.waiterme.Admin.ManageTables.Table" />
     </fragment>
+    <fragment
+        android:id="@+id/chefMainFragment"
+        android:name="cat.copernic.msabatem.waiterme.Chef.ChefMainFragment"
+        android:label="ChefMainFragment" />
 </navigation>

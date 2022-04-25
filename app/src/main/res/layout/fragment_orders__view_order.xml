@@ -45,14 +45,14 @@
             android:layout_height="0dp"
             android:layout_marginTop="28dp"
             android:layout_marginBottom="28dp"
-            app:layout_constraintBottom_toTopOf="@+id/btn_Orders_View_send"
+            app:layout_constraintBottom_toTopOf="@+id/btn_Orders_View_back"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_Waiter_Orders_View_Title" />
 
         <Button
-            android:id="@+id/btn_Orders_View_send"
+            android:id="@+id/btn_Orders_View_back"
             style="@style/WaiterButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

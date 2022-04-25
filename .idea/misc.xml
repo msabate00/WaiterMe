@@ -4,11 +4,13 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Android_Studio_Proyectos/WaiterMe/app/src/main/res/drawable/customborder.xml" value="0.2645" />
+        <entry key="..\:/Android_Studio_Proyectos/WaiterMe/app/src/main/res/drawable/customborder_chef.xml" value="0.131" />
         <entry key="..\:/Android_Studio_Proyectos/WaiterMe/app/src/main/res/layout/activity_main.xml" value="0.13333333333333333" />
         <entry key="..\:/Android_Studio_Proyectos/WaiterMe/app/src/main/res/layout/fragment_add_food.xml" value="0.264" />
         <entry key="..\:/Android_Studio_Proyectos/WaiterMe/app/src/main/res/layout/fragment_add_order.xml" value="0.259375" />
         <entry key="..\:/Android_Studio_Proyectos/WaiterMe/app/src/main/res/layout/fragment_add_table.xml" value="0.264" />
         <entry key="..\:/Android_Studio_Proyectos/WaiterMe/app/src/main/res/layout/fragment_admin_main.xml" value="0.259375" />
+        <entry key="..\:/Android_Studio_Proyectos/WaiterMe/app/src/main/res/layout/fragment_chef_main.xml" value="0.259375" />
         <entry key="..\:/Android_Studio_Proyectos/WaiterMe/app/src/main/res/layout/fragment_food_selector.xml" value="0.259375" />
         <entry key="..\:/Android_Studio_Proyectos/WaiterMe/app/src/main/res/layout/fragment_food_selector__ready_to_send.xml" value="0.259375" />
         <entry key="..\:/Android_Studio_Proyectos/WaiterMe/app/src/main/res/layout/fragment_login.xml" value="0.4839650145772595" />
@@ -22,6 +24,7 @@
         <entry key="..\:/Android_Studio_Proyectos/WaiterMe/app/src/main/res/layout/fragment_table_waiter_food_selector.xml" value="0.259375" />
         <entry key="..\:/Android_Studio_Proyectos/WaiterMe/app/src/main/res/layout/fragment_waiter_main.xml" value="0.11614583333333334" />
         <entry key="..\:/Android_Studio_Proyectos/WaiterMe/app/src/main/res/layout/item_food.xml" value="0.259375" />
+        <entry key="..\:/Android_Studio_Proyectos/WaiterMe/app/src/main/res/layout/item_foodc.xml" value="0.259375" />
         <entry key="..\:/Android_Studio_Proyectos/WaiterMe/app/src/main/res/layout/item_foodw.xml" value="0.259375" />
         <entry key="..\:/Android_Studio_Proyectos/WaiterMe/app/src/main/res/layout/item_order.xml" value="0.259375" />
         <entry key="..\:/Android_Studio_Proyectos/WaiterMe/app/src/main/res/layout/item_table.xml" value="0.259375" />
