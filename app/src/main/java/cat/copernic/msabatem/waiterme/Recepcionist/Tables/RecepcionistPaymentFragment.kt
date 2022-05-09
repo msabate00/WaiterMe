@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.GridLayoutManager
@@ -39,6 +40,8 @@ class RecepcionistPaymentFragment  : Fragment() {
         binding.btnRecepcionistPaymentPay.setOnClickListener{
             Utils().setfinishedAllOrdersFromTable(args.table.id!!, true);
             Utils().editAvaileableTable(args.table.id!!, true);
+            Toast.makeText(context, getString(R.string.msg_paid), Toast.LENGTH_SHORT).show()
+            findNavController().popBackStack();
         }
 
 
