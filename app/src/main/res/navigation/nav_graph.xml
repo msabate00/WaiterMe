@@ -101,7 +101,14 @@
         android:id="@+id/recepcionistTablesFragment"
         android:name="cat.copernic.msabatem.waiterme.Recepcionist.Tables.RecepcionistTablesFragment"
         android:label="fragment_recepcionist_tables"
-        tools:layout="@layout/fragment_recepcionist_tables" />
+        tools:layout="@layout/fragment_recepcionist_tables" >
+        <argument
+            android:name="type"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_recepcionistTablesFragment_to_recepcionistPaymentFragment"
+            app:destination="@id/recepcionistPaymentFragment" />
+    </fragment>
     <fragment
         android:id="@+id/waiterMainFragment"
         android:name="cat.copernic.msabatem.waiterme.Waiter.WaiterMainFragment"
@@ -165,4 +172,12 @@
         android:id="@+id/chefMainFragment"
         android:name="cat.copernic.msabatem.waiterme.Chef.ChefMainFragment"
         android:label="ChefMainFragment" />
+    <fragment
+        android:id="@+id/recepcionistPaymentFragment"
+        android:name="cat.copernic.msabatem.waiterme.Recepcionist.Tables.RecepcionistPaymentFragment"
+        android:label="RecepcionistPaymentFragment" >
+        <argument
+            android:name="table"
+            app:argType="cat.copernic.msabatem.waiterme.Admin.ManageTables.Table" />
+    </fragment>
 </navigation>

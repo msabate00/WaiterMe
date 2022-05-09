@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/frameLayout3"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".Recepcionist.Tables.RecepcionistPaymentFragment">
+
+
+        <TextView
+            android:id="@+id/tv_Receptionist_Payment_View_Cost"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="176dp"
+            android:text="0"
+            android:textColor="@color/yellow"
+            android:textSize="60sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_Receptionist_Payment_View_Title" />
+
+        <TextView
+            android:id="@+id/tv_Receptionist_Payment_View_Title"
+            style="@style/HeaderText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            android:text="@string/receptionist"
+            android:textAllCaps="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/bt_Recepcionist_Payment_View_Cancel"
+            android:layout_width="40dp"
+            android:layout_height="52dp"
+            android:layout_marginEnd="16dp"
+            android:backgroundTint="@color/cardview_shadow_end_color"
+            android:drawableTop="@android:drawable/ic_menu_revert"
+            app:iconPadding="0dp"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_Receptionist_Payment_View_Title"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tv_Receptionist_Payment_View_Title"
+            app:layout_constraintVertical_bias="0.571" />
+
+        <Button
+            android:id="@+id/btn_Recepcionist_Payment_pay"
+            style="@style/ReceptionistButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="32dp"
+            android:text="@string/paid"
+            app:layout_constraintBottom_toTopOf="@+id/btn_Recepcionist_Payment_goback"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Button
+            android:id="@+id/btn_Recepcionist_Payment_goback"
+            style="@style/ReceptionistButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="36dp"
+            android:text="@string/go_back"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

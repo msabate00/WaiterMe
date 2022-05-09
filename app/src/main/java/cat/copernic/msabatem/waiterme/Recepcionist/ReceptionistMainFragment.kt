@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import cat.copernic.msabatem.waiterme.R
 import cat.copernic.msabatem.waiterme.Recepcionist.ReceptionistMainFragmentDirections
+import cat.copernic.msabatem.waiterme.Utils
 import cat.copernic.msabatem.waiterme.databinding.FragmentAdminMainBinding
 import cat.copernic.msabatem.waiterme.databinding.FragmentReceptionistMainBinding
 import cat.copernic.msabatem.waiterme.databinding.FragmentRegisterBinding
@@ -31,10 +32,12 @@ class ReceptionistMainFragment : Fragment() {
 
 
         binding.btReceptionistTake.setOnClickListener {
-            findNavController().navigate(ReceptionistMainFragmentDirections.actionReceptionistMainFragmentToRecepcionistTablesFragment());
+            findNavController().navigate(ReceptionistMainFragmentDirections.actionReceptionistMainFragmentToRecepcionistTablesFragment(
+                Utils.TABLE_RECEPTIONIS));
         }
         binding.btReceptionistPay.setOnClickListener {
-            findNavController().navigate(ReceptionistMainFragmentDirections.actionReceptionistMainFragmentToRecepcionistTablesFragment());
+            findNavController().navigate(ReceptionistMainFragmentDirections.actionReceptionistMainFragmentToRecepcionistTablesFragment(
+                Utils.TABLE_RECEPTIONIST_TAKE));
         }
 
         return binding.root;
