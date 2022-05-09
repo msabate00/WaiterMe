@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.GridLayoutManager
 import cat.copernic.msabatem.waiterme.R
@@ -32,6 +33,13 @@ class RecepcionistPaymentFragment  : Fragment() {
 
         Utils().getAllPricesFromTable(args.table.id!!, binding.tvReceptionistPaymentViewCost)
 
+        binding.btnRecepcionistPaymentGoback.setOnClickListener {
+            findNavController().popBackStack();
+        }
+        binding.btnRecepcionistPaymentPay.setOnClickListener{
+            Utils().setfinishedAllOrdersFromTable(args.table.id!!, true);
+            Utils().editAvaileableTable(args.table.id!!, true);
+        }
 
 
         return binding.root

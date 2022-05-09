@@ -533,4 +533,37 @@ class Utils {
         })
     }
 
+    fun setfinishedAllOrdersFromTable(table_id: Int, finished: Boolean){
+        val ref = databaseRef.child("locals/" + auth.uid.toString());
+        ref.child("orders").addListenerForSingleValueEvent(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+
+                if (snapshot.exists()) {
+
+                    for (snapshotData in snapshot.children) {
+
+                        val hashed = (snapshotData.value as HashMap<*, *>);
+                        if (((hashed["finished"] as Boolean?) != true) && hashed["table_id"] as Long == table_id.toLong()) {
+                            databaseRef.child("locals/" + auth.uid.toString());
+                            Log.i("AYUDA", hashed.toString())
+
+                            val order = OrderItem(hashed["table_id"].toString().toInt(),
+                                hashed["table_id"].toString().toInt(),
+                                hashed["foods_id"] as List<Int>,
+                                hashed["final_price"].toString().toFloat(),
+                                hashed["details"].toString(),
+                                finished
+                            );
+                            ref.child("orders").child(snapshotData.key!!).setValue(order);
+                        }
+                    }
+                }
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+
+            }
+        })
+    }
+
 }
