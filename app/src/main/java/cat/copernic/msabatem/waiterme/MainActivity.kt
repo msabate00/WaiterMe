@@ -31,6 +31,10 @@ class MainActivity : AppCompatActivity() {
     }
 
 
+    public fun singOut(){
+
+
+    }
 
     public fun openGallery(code: Int = 2, name: String = "0") {
         val gallery = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI)

@@ -15,6 +15,9 @@ import androidx.navigation.fragment.findNavController
 import cat.copernic.msabatem.waiterme.R
 import cat.copernic.msabatem.waiterme.Utils
 import cat.copernic.msabatem.waiterme.databinding.FragmentRolSelectorBinding
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 
 
 /**
@@ -42,6 +45,12 @@ class RolSelectorFragment : Fragment() {
 
         binding.btRolSelectorAdmin.setOnClickListener {
             adminDialog();
+        }
+
+        binding.btRolSelectorClose.setOnClickListener {
+            var auth = Firebase.auth;
+            auth.signOut();
+            findNavController().navigate(RolSelectorFragmentDirections.actionRolSelectorFragmentToLoginFragment());
         }
 
         binding.btRolSelectorReceptionist.setOnClickListener {
